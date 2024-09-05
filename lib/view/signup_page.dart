@@ -36,7 +36,7 @@ class SignupPage extends StatelessWidget {
                     children: [
                       const SizedBox(height: 70),
                       Text(
-                        'Sign Up'.tr,
+                        '10'.tr,
                         style: const TextStyle(
                             fontWeight: FontWeight.w400,
                             fontSize: 25,
@@ -47,7 +47,7 @@ class SignupPage extends StatelessWidget {
                       ),
                       _selectProfilePicture(),
                       const SizedBox(height: 10),
-                      Text("Add Profile Photo".tr),
+                      Text("11".tr),
                       const SizedBox(height: 40),
                       Padding(
                         padding: const EdgeInsets.symmetric(horizontal: 30.0),
@@ -56,7 +56,7 @@ class SignupPage extends StatelessWidget {
                           builder: (controller) {
                             return CustomTextField(
                               textController: controller.emailController,
-                              labelText: "Email",
+                              labelText: "2".tr,
                               errorText: controller.emailError,
                               keyboardType: TextInputType.emailAddress,
                               onFocusChange: (isFocused) {
@@ -80,7 +80,7 @@ class SignupPage extends StatelessWidget {
                           builder: (controller) {
                             return CustomTextField(
                               textController: controller.phoneController,
-                              labelText: "Phone Number",
+                              labelText: "3".tr,
                               errorText: controller.phoneError,
                               keyboardType: TextInputType.phone,
                               onFocusChange: (isFocused) {
@@ -104,7 +104,7 @@ class SignupPage extends StatelessWidget {
                           builder: (controller) {
                             return CustomTextField(
                               textController: controller.usernameController,
-                              labelText: "Username",
+                              labelText: "12".tr,
                               errorText: controller.usernameError,
                               onFocusChange: (isFocused) {
                                 if (!isFocused) {
@@ -127,7 +127,7 @@ class SignupPage extends StatelessWidget {
                           builder: (controller) {
                             return CustomTextField(
                               textController: controller.passwordController,
-                              labelText: "Password",
+                              labelText: "4".tr,
                               errorText: controller.passwordError,
                               obscureText: controller.hidePassword,
                               iconPath: (controller.hidePassword)
@@ -158,7 +158,7 @@ class SignupPage extends StatelessWidget {
                             return CustomTextField(
                               textController:
                                   controller.confirmPasswordController,
-                              labelText: "Re Password",
+                              labelText: "13".tr,
                               errorText: controller.confirmPasswordError,
                               obscureText: controller.hideConfirmPassword,
                               iconPath: (controller.hideConfirmPassword)
@@ -202,7 +202,7 @@ class SignupPage extends StatelessWidget {
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: [
                           Text(
-                            "Already have an account?",
+                            "16".tr,
                             style: TextStyle(
                               fontFamily: "Roboto",
                               fontSize: 13,
@@ -279,9 +279,9 @@ class SignupPage extends StatelessWidget {
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
-          const Text(
-            "Upload PDF ",
-            style: TextStyle(
+          Text(
+            "14".tr,
+            style: const TextStyle(
                 fontFamily: "Roboto",
                 fontSize: 16,
                 fontWeight: FontWeight.w500,
@@ -353,8 +353,8 @@ class SignupPage extends StatelessWidget {
       shape: RoundedRectangleBorder(
         borderRadius: BorderRadius.circular(10),
       ),
-      child: const Text("Sign up",
-          style: TextStyle(fontWeight: FontWeight.bold, fontSize: 16)),
+      child: Text("15".tr,
+          style: const TextStyle(fontWeight: FontWeight.bold, fontSize: 16)),
     );
   }
 
@@ -372,9 +372,9 @@ class SignupPage extends StatelessWidget {
           Color(0xff8C8A8C),
         ),
       ),
-      child: const Text(
-        "Login",
-        style: TextStyle(
+      child: Text(
+        "9".tr,
+        style: const TextStyle(
           fontFamily: "Roboto",
           fontSize: 13,
           color: Color(0xff3C2367),

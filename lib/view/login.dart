@@ -74,7 +74,7 @@ class LoginPage extends StatelessWidget {
                     padding:
                         EdgeInsets.only(left: _deviceWidth * 0.01, bottom: 30),
                     child: Text(
-                      "Logo".tr,
+                      "1".tr,
                       style: TextStyle(
                         fontSize: _deviceWidth * 0.15,
                         fontWeight: FontWeight.w800,
@@ -88,7 +88,7 @@ class LoginPage extends StatelessWidget {
                     builder: (controller) {
                       return CustomTextField(
                         textController: controller.emailController,
-                        labelText: "Email",
+                        labelText: "2".tr,
                         errorText: controller.emailError,
                         keyboardType: TextInputType.emailAddress,
                         onFocusChange: (isFocused) {
@@ -109,7 +109,7 @@ class LoginPage extends StatelessWidget {
                     builder: (controller) {
                       return CustomTextField(
                         textController: controller.phoneController,
-                        labelText: "Phone Number",
+                        labelText: "3".tr,
                         errorText: controller.phoneError,
                         keyboardType: TextInputType.phone,
                         onFocusChange: (isFocused) {
@@ -130,7 +130,7 @@ class LoginPage extends StatelessWidget {
                     builder: (controller) => CustomTextField(
                       textController: controller.passwordController,
                       obscureText: controller.hidePassword,
-                      labelText: "Password",
+                      labelText: "4".tr,
                       errorText: controller.passwordError,
                       iconPath: (controller.hidePassword)
                           ? "assets/icons/visibility_off.svg"
@@ -153,7 +153,7 @@ class LoginPage extends StatelessWidget {
                   Column(
                     children: [
                       Text(
-                        "Should be none less than 8 characters ".tr,
+                        "5 ".tr,
                         style: TextStyle(
                           color: Theme.of(context).brightness == Brightness.dark
                               ? Colors.white
@@ -162,7 +162,7 @@ class LoginPage extends StatelessWidget {
                         ),
                       ),
                       Text(
-                        "Forget password?".tr,
+                        "6".tr,
                         style: TextStyle(
                           fontWeight: FontWeight.w500,
                           color: Theme.of(context).brightness == Brightness.dark
@@ -178,7 +178,7 @@ class LoginPage extends StatelessWidget {
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
                       Text(
-                        "Dont have an account?".tr,
+                        "7".tr,
                         style: TextStyle(
                           fontSize: 12,
                           fontWeight: FontWeight.w700,
@@ -192,7 +192,7 @@ class LoginPage extends StatelessWidget {
                           Get.to(() => SignupPage());
                         },
                         child: Text(
-                          " Sign up".tr,
+                          "9".tr,
                           style: const TextStyle(
                             fontSize: 12,
                             fontWeight: FontWeight.w700,
