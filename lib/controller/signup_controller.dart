@@ -263,16 +263,16 @@ class SignupController extends GetxController {
       } else {
         final data = response.data;
         switch (response.statusCode) {
-          case 201:
+          case 200:
             clearAllErrors();
-            _settingsService.setUserId(
-              id: data['data']['id'],
-              rememberMe: true,
-            );
-            _settingsService.setToken(
-              newToken: data['token'],
-              rememberMe: true,
-            );
+            // _settingsService.setUserId(
+            //   id: data['data']['id'],
+            //   rememberMe: true,
+            // );
+            // _settingsService.setToken(
+            //   newToken: data['token'],
+            //   rememberMe: true,
+            // );
             return true;
           case 422:
             if (data['errors']['email'] != null) {

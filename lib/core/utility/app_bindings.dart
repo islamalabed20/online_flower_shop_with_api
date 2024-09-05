@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:online_flower_shop_auth/controller/Authentication_controller.dart';
 import 'package:online_flower_shop_auth/controller/login_controller.dart';
 
 import 'package:online_flower_shop_auth/controller/signup_controller.dart';
@@ -49,14 +50,14 @@ class SignupBindings implements Bindings {
   }
 }
 
-// class AuthBindings implements Bindings {
-//   @override
-//   void dependencies() {
-//     Get.lazyPut(
-//       () => AuthenticationController(),
-//     );
-//   }
-// }
+class AuthBindings implements Bindings {
+  @override
+  void dependencies() {
+    Get.lazyPut(
+      () => AuthenticationController(),
+    );
+  }
+}
 
 class HomeBindings implements Bindings {
   @override

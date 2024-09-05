@@ -5,6 +5,7 @@ import 'package:online_flower_shop_auth/core/utility/app_bindings.dart';
 import 'package:online_flower_shop_auth/view/home.dart';
 import 'package:online_flower_shop_auth/view/login.dart';
 import 'package:online_flower_shop_auth/view/signup_page.dart';
+import 'package:online_flower_shop_auth/view/verificationcode.dart';
 
 final routes = [
   GetPage(
@@ -27,14 +28,14 @@ final routes = [
     curve: Curves.easeInOut,
   ),
 
-  // GetPage(
-  //   name: '/authentication',
-  //   page: () => AuthenticationPage(),
-  //   binding: AuthBindings(),
-  //   transition: Transition.rightToLeft,
-  //   transitionDuration: const Duration(milliseconds: 500),
-  //   curve: Curves.easeInOut,
-  // ),
+  GetPage(
+    name: '/authentication',
+    page: () => VerificationCodePage(),
+    binding: AuthBindings(),
+    transition: Transition.rightToLeft,
+    transitionDuration: const Duration(milliseconds: 500),
+    curve: Curves.easeInOut,
+  ),
   GetPage(
     name: '/home',
     page: () => HomePage(),
