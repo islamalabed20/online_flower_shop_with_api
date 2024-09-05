@@ -8,7 +8,6 @@ import 'package:online_flower_shop_auth/core/widget/reviews.dart';
 import 'package:online_flower_shop_auth/core/widget/selectedfower.dart';
 import 'package:online_flower_shop_auth/view/mycart.dart';
 
-
 class FlowerDetails extends StatelessWidget {
   final FlowerColorController controller = Get.put(FlowerColorController());
   FlowerDetails({super.key});
@@ -35,13 +34,16 @@ class FlowerDetails extends StatelessWidget {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  const Text(
+                  Text(
                     'Color',
                     style: TextStyle(
-                        fontSize: 18,
-                        fontWeight: FontWeight.w500,
-                        fontFamily: 'Montserrat',
-                        color: Color(0xff3C2367)),
+                      fontSize: 18,
+                      fontWeight: FontWeight.w500,
+                      fontFamily: 'Montserrat',
+                      color: Theme.of(context).brightness == Brightness.dark
+                          ? const Color(0xFFFAF7F7) // Color for dark mode
+                          : Color(0xff3C2367),
+                    ),
                   ),
                   const SizedBox(
                     height: 10,
@@ -65,7 +67,7 @@ class FlowerDetails extends StatelessWidget {
               thickness: 3,
               color: Color(0xffF3E9F5),
             ),
-            const Padding(
+            Padding(
               padding: EdgeInsets.symmetric(horizontal: 30),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
@@ -73,10 +75,13 @@ class FlowerDetails extends StatelessWidget {
                   Text(
                     'Flower information',
                     style: TextStyle(
-                        fontSize: 18,
-                        fontWeight: FontWeight.w500,
-                        fontFamily: 'Montserrat',
-                        color: Color(0xff3C2367)),
+                      fontSize: 18,
+                      fontWeight: FontWeight.w500,
+                      fontFamily: 'Montserrat',
+                      color: Theme.of(context).brightness == Brightness.dark
+                          ? const Color(0xFFFAF7F7) // Color for dark mode
+                          : Color(0xff3C2367),
+                    ),
                   ),
                   SizedBox(
                     height: 10,
@@ -95,7 +100,7 @@ class FlowerDetails extends StatelessWidget {
               thickness: 3,
               color: Color(0xffF3E9F5),
             ),
-            const Padding(
+            Padding(
               padding: EdgeInsets.symmetric(horizontal: 30),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
@@ -103,10 +108,13 @@ class FlowerDetails extends StatelessWidget {
                   Text(
                     'How to Take care of it',
                     style: TextStyle(
-                        fontSize: 18,
-                        fontWeight: FontWeight.w500,
-                        fontFamily: 'Montserrat',
-                        color: Color(0xff3C2367)),
+                      fontSize: 18,
+                      fontWeight: FontWeight.w500,
+                      fontFamily: 'Montserrat',
+                      color: Theme.of(context).brightness == Brightness.dark
+                          ? const Color(0xFFFAF7F7) // Color for dark mode
+                          : Color(0xff3C2367),
+                    ),
                   ),
                   SizedBox(
                     height: 10,
@@ -195,13 +203,16 @@ class FlowerDetails extends StatelessWidget {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  const Text(
+                  Text(
                     'Reviews',
                     style: TextStyle(
-                        fontSize: 18,
-                        fontWeight: FontWeight.w500,
-                        fontFamily: 'Montserrat',
-                        color: Color(0xff3C2367)),
+                      fontSize: 18,
+                      fontWeight: FontWeight.w500,
+                      fontFamily: 'Montserrat',
+                      color: Theme.of(context).brightness == Brightness.dark
+                          ? const Color(0xFFFAF7F7) // Color for dark mode
+                          : Color(0xff3C2367),
+                    ),
                   ),
                   const SizedBox(
                     height: 10,
@@ -229,6 +240,9 @@ class FlowerDetails extends StatelessWidget {
               padding: const EdgeInsets.symmetric(horizontal: 30),
               child: Container(
                 decoration: BoxDecoration(
+                  color: Theme.of(context).brightness == Brightness.dark
+                      ? const Color(0xFFFAF7F7) // Color for dark mode
+                      : Colors.transparent,
                   borderRadius: BorderRadius.circular(3),
                   border: Border.all(
                     color: const Color(0xffD9D9D9),
@@ -239,9 +253,11 @@ class FlowerDetails extends StatelessWidget {
                 height: 82,
                 alignment: Alignment.centerLeft,
                 child: const Padding(
-                  padding: EdgeInsets.only(
-                      left: 16.0), // Add left padding here
-                  child: Text('Add Comment'),
+                  padding: EdgeInsets.only(left: 16.0), // Add left padding here
+                  child: Text(
+                    'Add Comment',
+                    style: TextStyle(color: Colors.black),
+                  ),
                 ),
               ),
             ),

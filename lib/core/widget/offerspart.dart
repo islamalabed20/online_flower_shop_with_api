@@ -1,4 +1,5 @@
 import 'package:flutter/cupertino.dart';
+import 'package:flutter/material.dart';
 
 class OffersPart extends StatelessWidget {
   const OffersPart({super.key});
@@ -8,11 +9,13 @@ class OffersPart extends StatelessWidget {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        const Text(
+        Text(
           'Offers',
           style: TextStyle(
               fontSize: 20,
-              color: Color(0xff3C2367),
+              color: Theme.of(context).brightness == Brightness.dark
+                  ? Colors.white
+                  : Color(0xff3C2367),
               fontWeight: FontWeight.w700,
               fontFamily: 'Montserrat'),
         ),
@@ -23,6 +26,9 @@ class OffersPart extends StatelessWidget {
             children: [
               Container(
                 decoration: BoxDecoration(
+                    color: Theme.of(context).brightness == Brightness.dark
+                        ? const Color(0xFFFAF7F7) // Color for dark mode
+                        : Colors.transparent, // No color for light mode
                     borderRadius: const BorderRadius.only(
                       bottomLeft: Radius.circular(29.0),
                       bottomRight: Radius.circular(6.0),

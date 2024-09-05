@@ -12,10 +12,12 @@ class CardInformation extends StatelessWidget {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        const Text(
+        Text(
           'Card information ',
           style: TextStyle(
-            color: Color(0xFF3C2367),
+            color: Theme.of(context).brightness == Brightness.dark
+                ? Colors.white
+                : Color(0xff3C2367),
             fontFamily: 'Montserrat',
             fontWeight: FontWeight.w400,
           ),
@@ -23,10 +25,12 @@ class CardInformation extends StatelessWidget {
         const SizedBox(
           height: 10,
         ),
-        const Text(
+        Text(
           'Card Holder Full Name ',
           style: TextStyle(
-            color: Color(0xFF8C8A8C),
+            color: Theme.of(context).brightness == Brightness.dark
+                ? Colors.white
+                : Color(0xFF8C8A8C),
             fontFamily: 'Montserrat',
             fontWeight: FontWeight.w400,
           ),
@@ -35,12 +39,18 @@ class CardInformation extends StatelessWidget {
           height: 10,
         ),
         TextField(
+          obscureText: true,
           decoration: InputDecoration(
             filled: true,
-            fillColor: Colors.white,
+            fillColor: Theme.of(context).brightness == Brightness.dark
+                ? const Color(0xff455555)
+                : Colors.white,
             border: OutlineInputBorder(
               borderRadius: BorderRadius.circular(5.0),
-              borderSide: BorderSide.none,
+              borderSide: BorderSide(
+                color: Colors.white,
+                width: 1,
+              ),
             ),
             contentPadding: const EdgeInsets.symmetric(
               vertical:
@@ -52,10 +62,12 @@ class CardInformation extends StatelessWidget {
         const SizedBox(
           height: 10,
         ),
-        const Text(
+        Text(
           'Card Number ',
           style: TextStyle(
-            color: Color(0xFF8C8A8C),
+            color: Theme.of(context).brightness == Brightness.dark
+                ? Colors.white
+                : Color(0xFF8C8A8C),
             fontFamily: 'Montserrat',
             fontWeight: FontWeight.w400,
           ),
@@ -64,12 +76,18 @@ class CardInformation extends StatelessWidget {
           height: 10,
         ),
         TextField(
+          obscureText: true,
           decoration: InputDecoration(
             filled: true,
-            fillColor: Colors.white,
+            fillColor: Theme.of(context).brightness == Brightness.dark
+                ? const Color(0xff455555)
+                : Colors.white,
             border: OutlineInputBorder(
               borderRadius: BorderRadius.circular(5.0),
-              borderSide: BorderSide.none,
+              borderSide: BorderSide(
+                color: Colors.white,
+                width: 1,
+              ),
             ),
             contentPadding: const EdgeInsets.symmetric(
               vertical:
@@ -86,10 +104,12 @@ class CardInformation extends StatelessWidget {
             Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                const Text(
+                Text(
                   'Expiration Date ',
                   style: TextStyle(
-                    color: Color(0xFF8C8A8C),
+                    color: Theme.of(context).brightness == Brightness.dark
+                        ? Colors.white
+                        : Color(0xFF8C8A8C),
                     fontFamily: 'Montserrat',
                     fontWeight: FontWeight.w400,
                   ),
@@ -100,14 +120,21 @@ class CardInformation extends StatelessWidget {
                 SizedBox(
                   width: Get.width / 3,
                   child: TextField(
+                    keyboardType: TextInputType.datetime,
                     decoration: InputDecoration(
                       filled: true,
-                      fillColor: Colors.white,
+                      fillColor: Theme.of(context).brightness == Brightness.dark
+                          ? const Color(0xff455555)
+                          : Colors.white,
                       border: OutlineInputBorder(
                         borderRadius: BorderRadius.circular(5.0),
-                        borderSide: BorderSide.none,
+                        borderSide: BorderSide(
+                          color: Colors.white,
+                          width: 1,
+                        ),
                       ),
                       contentPadding: const EdgeInsets.symmetric(
+                        horizontal: 10,
                         vertical:
                             10.0, // Adjust this value to decrease or increase height
                       ),
@@ -122,10 +149,12 @@ class CardInformation extends StatelessWidget {
             Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                const Text(
+                Text(
                   'CVV ',
                   style: TextStyle(
-                    color: Color(0xFF8C8A8C),
+                    color: Theme.of(context).brightness == Brightness.dark
+                        ? Colors.white
+                        : Color(0xFF8C8A8C),
                     fontFamily: 'Montserrat',
                     fontWeight: FontWeight.w400,
                   ),
@@ -138,12 +167,18 @@ class CardInformation extends StatelessWidget {
                   child: TextField(
                     decoration: InputDecoration(
                       filled: true,
-                      fillColor: Colors.white,
+                      fillColor: Theme.of(context).brightness == Brightness.dark
+                          ? const Color(0xff455555)
+                          : Colors.white,
                       border: OutlineInputBorder(
                         borderRadius: BorderRadius.circular(5.0),
-                        borderSide: BorderSide.none,
+                        borderSide: BorderSide(
+                          color: Colors.white,
+                          width: 1,
+                        ),
                       ),
                       contentPadding: const EdgeInsets.symmetric(
+                        horizontal: 10,
                         vertical:
                             10.0, // Adjust this value to decrease or increase height
                       ),
@@ -160,10 +195,12 @@ class CardInformation extends StatelessWidget {
         Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            const Text(
+            Text(
               'Save for Future Purchases  ',
               style: TextStyle(
-                color: Color(0xFF8C8A8C),
+                color: Theme.of(context).brightness == Brightness.dark
+                    ? Colors.white
+                    : Color(0xFF8C8A8C),
                 fontFamily: 'Montserrat',
                 fontWeight: FontWeight.w400,
               ),
@@ -179,10 +216,12 @@ class CardInformation extends StatelessWidget {
                         }
                       },
                     )),
-                const Text(
+                Text(
                   'Yes',
                   style: TextStyle(
-                    color: Color(0xFF8C8A8C),
+                    color: Theme.of(context).brightness == Brightness.dark
+                        ? Colors.white
+                        : Color(0xFF8C8A8C),
                     fontFamily: 'Montserrat',
                     fontWeight: FontWeight.w400,
                   ),
@@ -197,10 +236,12 @@ class CardInformation extends StatelessWidget {
                         }
                       },
                     )),
-                const Text(
+                Text(
                   'No',
                   style: TextStyle(
-                    color: Color(0xFF8C8A8C),
+                    color: Theme.of(context).brightness == Brightness.dark
+                        ? Colors.white
+                        : Color(0xFF8C8A8C),
                     fontFamily: 'Montserrat',
                     fontWeight: FontWeight.w400,
                   ),

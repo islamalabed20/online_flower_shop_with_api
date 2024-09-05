@@ -49,8 +49,11 @@ class Reviews extends StatelessWidget {
                 children: [
                   Expanded(
                     child: Text(
-                        style: const TextStyle(
-                            color: Color(0xff6E6D6D),
+                        style: TextStyle(
+                            color: Theme.of(context).brightness ==
+                                    Brightness.dark
+                                ? const Color(0xFFFAF7F7) // Color for dark mode
+                                : Color(0xff6E6D6D),
                             fontFamily: 'Roboto',
                             fontSize: 20,
                             fontWeight: FontWeight.w400),
@@ -88,9 +91,7 @@ class Reviews extends StatelessWidget {
           height: 30,
         ),
         Container(
-          decoration: BoxDecoration(
-            
-          ),
+          decoration: BoxDecoration(),
         )
       ],
     );

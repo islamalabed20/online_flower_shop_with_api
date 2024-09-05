@@ -7,7 +7,7 @@ import 'package:online_flower_shop_auth/view/signup_page.dart';
 
 class LoginPage extends StatelessWidget {
   final double _deviceHeight, _deviceWidth;
-  final controller = Get.find<LoginController>();
+  final controller = Get.put(LoginController());
   LoginPage({super.key})
       : _deviceHeight = Get.height,
         _deviceWidth = Get.width;
@@ -17,7 +17,7 @@ class LoginPage extends StatelessWidget {
     return GestureDetector(
       onTap: () => FocusManager.instance.primaryFocus?.unfocus(),
       child: Scaffold(
-        backgroundColor: const Color(0xffE6F6F6),
+        backgroundColor: Theme.of(context).scaffoldBackgroundColor,
         body: QuitOnDoubleBack(
           child: _buildPage(context),
         ),
@@ -30,6 +30,35 @@ class LoginPage extends StatelessWidget {
       bottom: false,
       child: Stack(
         children: [
+          Positioned(
+            right: 0,
+            child: Image.asset(
+              'assets/images/dark_login.png',
+              width: 210,
+            ),
+          ),
+          Positioned(
+            top: 30, // Adjust the top position as needed
+            right: 40, // Adjust the right position as needed
+            child: Image.asset(
+              'assets/images/Bunch.png',
+              width: 210,
+            ),
+          ),
+          Positioned(
+            bottom: 0,
+            left: 0,
+            child: Image.asset(
+              'assets/images/login_dark2.png',
+            ),
+          ),
+          Positioned(
+            bottom: 0,
+            left: 0,
+            child: Image.asset(
+              'assets/images/download.png',
+            ),
+          ),
           Container(
             height: _deviceHeight,
             width: _deviceWidth,
@@ -45,7 +74,7 @@ class LoginPage extends StatelessWidget {
                     padding:
                         EdgeInsets.only(left: _deviceWidth * 0.01, bottom: 30),
                     child: Text(
-                      "Login".tr,
+                      "Logo".tr,
                       style: TextStyle(
                         fontSize: _deviceWidth * 0.15,
                         fontWeight: FontWeight.w800,
@@ -53,7 +82,7 @@ class LoginPage extends StatelessWidget {
                       ),
                     ),
                   ),
-                  const SizedBox(height: 45),
+                  const SizedBox(height: 25),
                   GetBuilder<LoginController>(
                     id: 'email',
                     builder: (controller) {
@@ -125,16 +154,24 @@ class LoginPage extends StatelessWidget {
                     children: [
                       Text(
                         "Should be none less than 8 characters ".tr,
-                        style: const TextStyle(color: Color(0XFF8C8A8C)),
+                        style: TextStyle(
+                          color: Theme.of(context).brightness == Brightness.dark
+                              ? Colors.white
+                              : const Color(
+                                  0XFF8C8A8C), // Dynamic color based on theme
+                        ),
                       ),
                       Text(
                         "Forget password?".tr,
-                        style: const TextStyle(
+                        style: TextStyle(
                           fontWeight: FontWeight.w500,
-                          color: Color(0xffff0000),
+                          color: Theme.of(context).brightness == Brightness.dark
+                              ? Colors.red[300] // A softer red in dark mode
+                              : const Color(
+                                  0xffff0000), // Brighter red in light mode
                         ),
                       ),
-                      const SizedBox(height: 66),
+                      const SizedBox(height: 26),
                     ],
                   ),
                   Row(
@@ -142,10 +179,12 @@ class LoginPage extends StatelessWidget {
                     children: [
                       Text(
                         "Dont have an account?".tr,
-                        style: const TextStyle(
+                        style: TextStyle(
                           fontSize: 12,
                           fontWeight: FontWeight.w700,
-                          color: Color(0XFF8C8A8C),
+                          color: Theme.of(context).brightness == Brightness.dark
+                              ? Colors.white
+                              : const Color(0XFF8C8A8C),
                         ),
                       ),
                       InkWell(
@@ -164,7 +203,7 @@ class LoginPage extends StatelessWidget {
                     ],
                   ),
                   const SizedBox(
-                    height: 23,
+                    height: 13,
                   ),
                   Center(child: _loginButton()),
                 ],

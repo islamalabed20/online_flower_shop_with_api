@@ -4,7 +4,6 @@ import 'package:online_flower_shop_auth/core/widget/custumbottombar.dart';
 import 'package:online_flower_shop_auth/core/widget/header.dart';
 import 'package:online_flower_shop_auth/core/widget/offerspart.dart';
 
-
 class HomePage extends StatelessWidget {
   const HomePage({super.key});
 
@@ -25,10 +24,12 @@ class HomePage extends StatelessWidget {
             const SizedBox(
               height: 10,
             ),
-            const Text(
+            Text(
               'Hello User',
               style: TextStyle(
-                  color: Color(0xff3C2367),
+                  color: Theme.of(context).brightness == Brightness.dark
+                      ? Colors.white
+                      : Color(0xff3C2367),
                   fontWeight: FontWeight.w700,
                   fontSize: 20,
                   fontFamily: 'Montserrat'),
@@ -46,10 +47,13 @@ class HomePage extends StatelessWidget {
               width: 260,
               padding: const EdgeInsets.symmetric(vertical: 10, horizontal: 10),
               alignment: Alignment.center,
-              child: const Text(
-                'Explore our stunning collection of flowers and vibrant plants to brighten every occasion.',
-                style: TextStyle(color: Color(0xff8C8A8C)),
-              ),
+              child: Text(
+                  'Explore our stunning collection of flowers and vibrant plants to brighten every occasion.',
+                  style: TextStyle(
+                    color: Theme.of(context).brightness == Brightness.dark
+                        ? Colors.white
+                        : Color(0xff8C8A8C),
+                  )),
             ),
             const SizedBox(
               height: 28,
@@ -71,7 +75,9 @@ class HomePage extends StatelessWidget {
                     'Customize Special Gifts  ',
                     style: TextStyle(
                         fontSize: 20,
-                        color: Color(0xff3C2367),
+                        color: Theme.of(context).brightness == Brightness.dark
+                            ? Colors.white
+                            : Color(0xff3C2367),
                         fontWeight: FontWeight.w700,
                         fontFamily: 'Montserrat'),
                   ),

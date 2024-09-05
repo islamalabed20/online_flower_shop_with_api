@@ -7,7 +7,6 @@ import 'package:online_flower_shop_auth/core/widget/popup.dart';
 import 'package:online_flower_shop_auth/view/home.dart';
 import 'package:online_flower_shop_auth/view/login.dart';
 
-
 class PaymentTwoPage extends StatelessWidget {
   final PaymentController controller = Get.put(PaymentController());
 
@@ -15,7 +14,7 @@ class PaymentTwoPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: const Color(0xFFE6F6F6),
+      backgroundColor: Theme.of(context).scaffoldBackgroundColor,
       body: SingleChildScrollView(
         child: Padding(
           padding: const EdgeInsets.all(25.0),
@@ -29,7 +28,7 @@ class PaymentTwoPage extends StatelessWidget {
                 children: [
                   InkWell(
                     onTap: () {
-                      Get.to( LoginPage());
+                      Get.to(LoginPage());
                     },
                     child: Image.asset(
                       'assets/images/left-arrow2.png',
@@ -37,10 +36,12 @@ class PaymentTwoPage extends StatelessWidget {
                     ),
                   ),
                   const SizedBox(width: 70),
-                  const Text(
+                  Text(
                     'Payement',
                     style: TextStyle(
-                        color: Color(0xff3C2367),
+                        color: Theme.of(context).brightness == Brightness.dark
+                            ? Colors.white
+                            : const Color(0xff3C2367),
                         fontSize: 25,
                         fontFamily: 'Montserrat',
                         fontWeight: FontWeight.w700),
@@ -50,20 +51,22 @@ class PaymentTwoPage extends StatelessWidget {
               const SizedBox(
                 height: 30,
               ),
-              const Center(
+              Center(
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Text(
                       "Payment Method",
                       style: TextStyle(
-                        color: Color(0xFF3C2367),
+                        color: Theme.of(context).brightness == Brightness.dark
+                            ? Colors.white
+                            : const Color(0xff3C2367),
                         fontFamily: 'Montserrat',
                         fontWeight: FontWeight.w400,
                       ),
                     ),
-                    SizedBox(height: 10),
-                    Padding(
+                    const SizedBox(height: 10),
+                    const Padding(
                       padding: EdgeInsets.symmetric(horizontal: 20),
                       child: Column(
                         children: [
@@ -100,7 +103,7 @@ class PaymentTwoPage extends StatelessWidget {
                         ],
                       ),
                     ),
-                    SizedBox(height: 16),
+                    const SizedBox(height: 16),
                   ],
                 ),
               ),
@@ -123,7 +126,9 @@ class PaymentTwoPage extends StatelessWidget {
                           shape: RoundedRectangleBorder(
                             borderRadius: BorderRadius.circular(26),
                           ),
-                          child: PopUp(content: '',),
+                          child: const PopUp(
+                            content: '',
+                          ),
                         );
                       },
                     );

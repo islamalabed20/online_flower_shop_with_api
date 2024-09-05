@@ -4,7 +4,6 @@ import 'package:online_flower_shop_auth/core/widget/customsetting.dart';
 import 'package:online_flower_shop_auth/core/widget/custumbottombar.dart';
 import 'package:online_flower_shop_auth/view/login.dart';
 
-
 class SettingPage extends StatelessWidget {
   const SettingPage({super.key});
 
@@ -14,6 +13,7 @@ class SettingPage extends StatelessWidget {
     Get.put(());
     //
     return Scaffold(
+      backgroundColor: Colors.white,
       resizeToAvoidBottomInset: false,
       body: SizedBox(
         //height: Get.height,
@@ -37,7 +37,7 @@ class SettingPage extends StatelessWidget {
                         height: 40,
                       ),
                       const Text(
-                        'Sittings',
+                        'Settings',
                         style: TextStyle(
                             color: Color(0xff3C2367),
                             fontSize: 25,
@@ -168,7 +168,7 @@ class SettingPage extends StatelessWidget {
                                                                                 vertical: 13,
                                                                               ),
                                                                               onPressed: () {
-                                                                                Get.to( LoginPage());
+                                                                                Get.to(LoginPage());
                                                                               },
                                                                               color: const Color(0xffE6F6F6),
                                                                               textColor: const Color(0xFF8F8F8F),

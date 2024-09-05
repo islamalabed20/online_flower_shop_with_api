@@ -25,7 +25,11 @@ class FlowerColor extends StatelessWidget {
           height: 111.0,
           decoration: BoxDecoration(
             border: Border.all(
-              color: isSelected ? const Color(0xff3C2367) : Colors.transparent,
+              color: isSelected
+                  ? Theme.of(context).brightness == Brightness.dark
+                      ? const Color(0xFFFAF7F7) // Color for dark mode
+                      : Color(0xff3C2367)
+                  : Colors.transparent,
               width: 2.0,
             ),
             borderRadius: BorderRadius.circular(12),

@@ -10,40 +10,53 @@ class VerificationCodePage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    const pinTheme = PinTheme(
+    var pinTheme = PinTheme(
         width: 50,
         height: 50,
         textStyle: TextStyle(
           fontSize: 22,
-          color: Colors.black,
+          color: Theme.of(context).brightness == Brightness.dark
+              ? Colors.white
+              : Colors.black,
         ),
         decoration: BoxDecoration(
           border: Border(
             bottom: BorderSide(
-              color: Colors.black, // Set the color of the bottom border
+              color: Theme.of(context).brightness == Brightness.dark
+                  ? Colors.white
+                  : Colors.black, // Set the color of the bottom border
               width: 2.0, // Set the width of the bottom border
             ),
           ),
         ),
-        margin: EdgeInsets.symmetric(horizontal: 5.0));
+        margin: const EdgeInsets.symmetric(horizontal: 5.0));
     return Scaffold(
       body: SingleChildScrollView(
         child: Column(
           children: [
-            Stack(
-              children: [
-                Image.asset('assets/images/Rectangle.png'),
-                Center(child: Image.asset('assets/images/Monstera.png'))
-              ],
+            Container(
+              height: 350,
+              width: double.infinity,
+              decoration: const BoxDecoration(
+                color: Color(0xffD9E9E9),
+                borderRadius: BorderRadius.only(
+                    bottomLeft: Radius.circular(89),
+                    bottomRight: Radius.circular(89)),
+              ),
+              child: Center(
+                child: Image.asset('assets/images/Monstera.png'),
+              ),
             ),
             const SizedBox(
               height: 30,
             ),
             Text(
               '17'.tr,
-              style: const TextStyle(
+              style: TextStyle(
                   fontSize: 22,
-                  color: Color(0xff8C8A8C),
+                  color: Theme.of(context).brightness == Brightness.dark
+                      ? Colors.white
+                      : const Color(0xFF8C8A8C),
                   fontFamily: 'Montserrat'),
             ),
             SingleChildScrollView(
@@ -55,21 +68,29 @@ class VerificationCodePage extends StatelessWidget {
                   children: [
                     Text(
                       '18'.tr,
-                      style: const TextStyle(
-                          color: Color(0xff8C8A8C), fontFamily: 'Montserrat'),
+                      style: TextStyle(
+                          color: Theme.of(context).brightness == Brightness.dark
+                              ? Colors.white
+                              : const Color(0xFF8C8A8C),
+                          fontFamily: 'Montserrat'),
                     ),
                     Text(
                       '19'.tr,
-                      style: const TextStyle(
-                          color: Color(0xff8C8A8C), fontFamily: 'Montserrat'),
+                      style: TextStyle(
+                          color: Theme.of(context).brightness == Brightness.dark
+                              ? Colors.white
+                              : const Color(0xFF8C8A8C),
+                          fontFamily: 'Montserrat'),
                     ),
                     const SizedBox(
                       height: 7,
                     ),
                     Text(
                       '20'.tr,
-                      style: const TextStyle(
-                          color: Color(0xff8C8A8C),
+                      style: TextStyle(
+                          color: Theme.of(context).brightness == Brightness.dark
+                              ? Colors.white
+                              : const Color(0xFF8C8A8C),
                           fontFamily: 'Montserrat',
                           fontSize: 15),
                     ),
@@ -78,13 +99,17 @@ class VerificationCodePage extends StatelessWidget {
                     ),
                     Text(
                       '21'.tr,
-                      style: const TextStyle(
-                          color: Color(0xff3C2367),
+                      style: TextStyle(
+                          color: Theme.of(context).brightness == Brightness.dark
+                              ? const Color(0xffA08EA4)
+                              : const Color(0xff3C2367),
                           fontFamily: 'Montserrat',
                           fontSize: 20),
                     ),
                     Pinput(
                       length: 6,
+                      obscureText: true,
+                      obscuringCharacter: '*',
                       defaultPinTheme: pinTheme,
                       focusedPinTheme: pinTheme.copyWith(
                           decoration: pinTheme.decoration!.copyWith(
@@ -97,15 +122,19 @@ class VerificationCodePage extends StatelessWidget {
                     ),
                     Text(
                       '22'.tr,
-                      style: const TextStyle(
-                          color: Color(0xff8C8A8C),
+                      style: TextStyle(
+                          color: Theme.of(context).brightness == Brightness.dark
+                              ? Colors.white
+                              : const Color(0xFF8C8A8C),
                           fontFamily: 'Montserrat',
                           fontSize: 13),
                     ),
                     Text(
                       '23'.tr,
-                      style: const TextStyle(
-                          color: Color(0xff8C8A8C),
+                      style: TextStyle(
+                          color: Theme.of(context).brightness == Brightness.dark
+                              ? Colors.white
+                              : const Color(0xFF8C8A8C),
                           fontFamily: 'Montserrat',
                           fontSize: 13),
                     ),
@@ -130,7 +159,9 @@ class VerificationCodePage extends StatelessWidget {
                           },
                         );
                       },
-                      color: const Color(0xFFF3E9F5),
+                      color: Theme.of(context).brightness == Brightness.dark
+                          ? const Color(0xffD9E9E9)
+                          : const Color(0xFFF3E9F5),
                       textColor: Colors.white,
                       minWidth: 220,
                       height: 58,

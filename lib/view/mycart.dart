@@ -27,7 +27,7 @@ class MyCart extends StatelessWidget {
                           children: [
                             InkWell(
                               onTap: () {
-                                Get.to( LoginPage());
+                                Get.to(LoginPage());
                               },
                               child: Image.asset(
                                 'assets/images/left-arrow2.png',
@@ -37,10 +37,13 @@ class MyCart extends StatelessWidget {
                             const SizedBox(
                               width: 10,
                             ),
-                            const Text(
+                            Text(
                               'My Cart',
                               style: TextStyle(
-                                  color: Color(0xff3C2367),
+                                  color: Theme.of(context).brightness ==
+                                          Brightness.dark
+                                      ? Colors.white
+                                      : const Color(0xff3C2367),
                                   fontSize: 25,
                                   fontFamily: 'Montserrat',
                                   fontWeight: FontWeight.w700),
@@ -60,6 +63,8 @@ class MyCart extends StatelessWidget {
                             'assets/images/Ellipse33.png',
                           ),
                           Positioned(
+                            top: 30,
+                            left: 30,
                             child: Image.asset('assets/images/mycart.png'),
                           ),
                         ],
@@ -94,40 +99,69 @@ class MyCart extends StatelessWidget {
                   const SizedBox(
                     height: 20,
                   ),
-                  const Text(
+                  Text(
                     "Address: Dummar street A building number 25",
-                    style: TextStyle(fontSize: 15, color: Color(0xff8C8A8C)),
+                    style: TextStyle(
+                      fontSize: 15,
+                      color: Theme.of(context).brightness == Brightness.dark
+                          ? Colors.white
+                          : const Color(0xff8C8A8C),
+                    ),
                   ),
                   const MyCartButton(
                     text: 'Change Address',
                   ),
-                  const Text(
+                  Text(
                     "Expected Date: june/26/2024",
-                    style: TextStyle(fontSize: 15, color: Color(0xff8C8A8C)),
+                    style: TextStyle(
+                      fontSize: 15,
+                      color: Theme.of(context).brightness == Brightness.dark
+                          ? Colors.white
+                          : const Color(0xff8C8A8C),
+                    ),
                   ),
-                  const Text(
+                  Text(
                     "Expected Time: 2:30 PM",
-                    style: TextStyle(fontSize: 15, color: Color(0xff8C8A8C)),
+                    style: TextStyle(
+                      fontSize: 15,
+                      color: Theme.of(context).brightness == Brightness.dark
+                          ? Colors.white
+                          : const Color(0xff8C8A8C),
+                    ),
                   ),
                   const MyCartButton(
                     text: 'Schedule Send Time',
                   ),
-                  const Text(
+                  Text(
                     "Delivery: 20\$",
-                    style: TextStyle(fontSize: 15, color: Color(0xff8C8A8C)),
+                    style: TextStyle(
+                      fontSize: 15,
+                      color: Theme.of(context).brightness == Brightness.dark
+                          ? Colors.white
+                          : const Color(0xff8C8A8C),
+                    ),
                   ),
-                  const Text(
+                  Text(
                     "Taxes: 15\$",
-                    style: TextStyle(fontSize: 15, color: Color(0xff8C8A8C)),
+                    style: TextStyle(
+                      fontSize: 15,
+                      color: Theme.of(context).brightness == Brightness.dark
+                          ? Colors.white
+                          : const Color(0xff8C8A8C),
+                    ),
                   ),
                   RichText(
-                    text: const TextSpan(
+                    text: TextSpan(
                       children: [
                         TextSpan(
                           text: "Total Price: ",
                           style: TextStyle(
                             color:
-                                Color(0xff3C2367), // Custom color for "Order"
+                                Theme.of(context).brightness == Brightness.dark
+                                    ? Colors.white
+                                    : const Color(0xff3C2367),
+
+                            // Custom color for "Order"
                             fontSize: 15, // Custom font size for "Order"
                             fontWeight: FontWeight.w600,
                             fontFamily: 'Roboto', // Custom font weight
@@ -136,7 +170,10 @@ class MyCart extends StatelessWidget {
                         TextSpan(
                           text: '15\$',
                           style: TextStyle(
-                            color: Color(0xff8C8A8C),
+                            color:
+                                Theme.of(context).brightness == Brightness.dark
+                                    ? Colors.white
+                                    : const Color(0xff8C8A8C),
                             fontSize: 15,
                             fontWeight: FontWeight.w500,
                             fontFamily: 'Roboto',

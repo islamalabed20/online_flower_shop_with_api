@@ -4,7 +4,6 @@ import 'package:online_flower_shop_auth/controller/paymentcontroller.dart';
 import 'package:online_flower_shop_auth/view/pages/paymentone.dart';
 import 'package:online_flower_shop_auth/view/pages/paymenttwo.dart';
 
-
 class PaymentPage extends StatelessWidget {
   final PaymentController controller = Get.put(PaymentController());
 
@@ -13,7 +12,7 @@ class PaymentPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: const Color(0xFFE6F6F6),
+      backgroundColor: Theme.of(context).scaffoldBackgroundColor,
       body: Column(
         children: [
           Expanded(

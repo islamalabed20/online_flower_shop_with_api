@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:online_flower_shop_auth/controller/paymentcontroller.dart';
 import 'package:online_flower_shop_auth/core/widget/address.dart';
-import 'package:online_flower_shop_auth/core/widget/payment_textfeild.dart';
+import 'package:online_flower_shop_auth/core/widget/customtextfield.dart';
 import 'package:online_flower_shop_auth/view/login.dart';
 
 class PaymentOnePage extends StatelessWidget {
@@ -12,7 +12,7 @@ class PaymentOnePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: const Color(0xFFE6F6F6),
+      backgroundColor: Theme.of(context).scaffoldBackgroundColor,
       body: SingleChildScrollView(
         child: Padding(
           padding: const EdgeInsets.all(20.0),
@@ -35,10 +35,12 @@ class PaymentOnePage extends StatelessWidget {
                     ),
                   ),
                   const SizedBox(width: 70),
-                  const Text(
+                  Text(
                     'Payement',
                     style: TextStyle(
-                        color: Color(0xff3C2367),
+                        color: Theme.of(context).brightness == Brightness.dark
+                            ? Colors.white
+                            : const Color(0xff3C2367),
                         fontSize: 25,
                         fontFamily: 'Montserrat',
                         fontWeight: FontWeight.w700),
@@ -48,25 +50,25 @@ class PaymentOnePage extends StatelessWidget {
               const SizedBox(
                 height: 40,
               ),
-              const CustomTextFormAuth(
-                labeltext: 'Name',
-                isNumber: false,
-                icon: null,
+              CustomTextField(
+                textController: TextEditingController(),
+                labelText: "Name",
+                keyboardType: TextInputType.emailAddress,
               ),
-              const CustomTextFormAuth(
-                labeltext: 'Phone Number ',
-                isNumber: false,
-                icon: null,
+              CustomTextField(
+                textController: TextEditingController(),
+                labelText: "Phone Number",
+                keyboardType: TextInputType.number,
               ),
-              const CustomTextFormAuth(
-                labeltext: 'Email',
-                isNumber: false,
-                icon: null,
+              CustomTextField(
+                textController: TextEditingController(),
+                labelText: "Email",
+                keyboardType: TextInputType.emailAddress,
               ),
-              const CustomTextFormAuth(
-                labeltext: 'Town/City',
-                isNumber: false,
-                icon: null,
+              CustomTextField(
+                textController: TextEditingController(),
+                labelText: "Town/City",
+                keyboardType: TextInputType.emailAddress,
               ),
               const AddressField(
                 labeltext1: 'Address',

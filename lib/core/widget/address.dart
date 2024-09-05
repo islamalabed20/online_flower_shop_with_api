@@ -22,12 +22,22 @@ class AddressField extends StatelessWidget {
           controller: controller1,
           decoration: InputDecoration(
             filled: true,
-            fillColor: Colors.white,
-            border: OutlineInputBorder(
+            fillColor: Theme.of(context).brightness == Brightness.dark
+                ? const Color(0xff455555)
+                : Colors.white,
+            border: const OutlineInputBorder(
               // borderRadius: BorderRadius.circular(10.0),
-              borderSide: BorderSide.none,
+              borderSide: BorderSide(
+                color: Colors.white,
+                width: 1,
+              ),
             ),
             labelText: labeltext1,
+            labelStyle: TextStyle(
+              color: Theme.of(context).brightness == Brightness.dark
+                  ? Colors.white
+                  : Color(0xff8C8A8C),
+            ),
             contentPadding: const EdgeInsets.symmetric(
               vertical: 10.0,
               horizontal: 16.0,
@@ -41,12 +51,22 @@ class AddressField extends StatelessWidget {
           controller: controller2,
           decoration: InputDecoration(
             filled: true,
-            fillColor: Colors.white,
-            border: OutlineInputBorder(
-              //borderRadius: BorderRadius.circular(10.0),
-              borderSide: BorderSide.none,
+            fillColor: Theme.of(context).brightness == Brightness.dark
+                ? const Color(0xff455555)
+                : Colors.white,
+            border: const OutlineInputBorder(
+              // borderRadius: BorderRadius.circular(10.0),
+              borderSide: BorderSide(
+                color: Colors.white,
+                width: 1,
+              ),
             ),
             labelText: labeltext2,
+            labelStyle: TextStyle(
+              color: Theme.of(context).brightness == Brightness.dark
+                  ? Colors.white
+                  : Color(0xff8C8A8C),
+            ),
             contentPadding: const EdgeInsets.symmetric(
               vertical: 10.0,
               horizontal: 16.0,

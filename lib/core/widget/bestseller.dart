@@ -34,11 +34,13 @@ class BestSeller extends StatelessWidget {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          const Text(
+          Text(
             'Best Seller',
             style: TextStyle(
                 fontSize: 20,
-                color: Color(0xff3C2367),
+                color: Theme.of(context).brightness == Brightness.dark
+                    ? Colors.white
+                    : Color(0xff3C2367),
                 fontWeight: FontWeight.w700,
                 fontFamily: 'Montserrat'),
           ),

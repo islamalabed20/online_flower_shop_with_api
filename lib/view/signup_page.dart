@@ -12,9 +12,9 @@ class SignupPage extends StatelessWidget {
 
   Widget _buildPage(BuildContext context) {
     return GestureDetector(
-      // onTap: () => FocusManager.instance.primaryFocus?.unfocus(),
+      onTap: () => FocusManager.instance.primaryFocus?.unfocus(),
       child: Scaffold(
-        backgroundColor: const Color(0xFFE6F6F6),
+        backgroundColor: Theme.of(context).scaffoldBackgroundColor,
         body: SafeArea(
           bottom: false,
           child: Stack(
@@ -38,7 +38,9 @@ class SignupPage extends StatelessWidget {
                       Text(
                         'Sign Up'.tr,
                         style: const TextStyle(
-                            fontWeight: FontWeight.w400, fontSize: 25),
+                            fontWeight: FontWeight.w400,
+                            fontSize: 25,
+                            color: Color(0xff452F6A)),
                       ),
                       const SizedBox(
                         height: 60,
@@ -185,7 +187,7 @@ class SignupPage extends StatelessWidget {
                           padding: const EdgeInsets.symmetric(horizontal: 30.0),
                           child: Column(
                             children: [
-                              _selectCertificateButton(),
+                              _selectCertificateButton(context),
                               _showPickedCertificate(),
                             ],
                           ),
@@ -199,12 +201,15 @@ class SignupPage extends StatelessWidget {
                         // mainAxisSize: MainAxisSize.max,
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: [
-                          const Text(
+                          Text(
                             "Already have an account?",
                             style: TextStyle(
                               fontFamily: "Roboto",
                               fontSize: 13,
-                              color: Color(0xff8C8A8C),
+                              color: Theme.of(context).brightness ==
+                                      Brightness.dark
+                                  ? Colors.white
+                                  : const Color(0XFF8C8A8C),
                             ),
                           ),
                           _loginButton(),
@@ -255,16 +260,20 @@ class SignupPage extends StatelessWidget {
     );
   }
 
-  Widget _selectCertificateButton() {
+  Widget _selectCertificateButton(BuildContext context) {
+    bool isDarkMode = Theme.of(context).brightness == Brightness.dark;
     return MaterialButton(
       onPressed: () {
         controller.pickFile();
       },
-      color: AppTheme.textFieldFillColor,
+      color: isDarkMode
+          ? const Color(0xff455555)
+          : AppTheme.textFieldFillColorLight,
       elevation: 0,
       hoverElevation: 0,
       highlightElevation: 0,
       shape: RoundedRectangleBorder(
+        side: const BorderSide(color: Color(0xFFFAFFF8)),
         borderRadius: BorderRadius.circular(7),
       ),
       child: Row(
@@ -273,11 +282,10 @@ class SignupPage extends StatelessWidget {
           const Text(
             "Upload PDF ",
             style: TextStyle(
-              fontFamily: "Roboto",
-              fontSize: 16,
-              fontWeight: FontWeight.w500,
-              color: Color(0xff8C8A8C),
-            ),
+                fontFamily: "Roboto",
+                fontSize: 16,
+                fontWeight: FontWeight.w500,
+                color: Color(0xff3C2367)),
           ),
           Padding(
             padding: const EdgeInsets.symmetric(vertical: 7.0),
@@ -323,14 +331,14 @@ class SignupPage extends StatelessWidget {
   Widget _signupButton() {
     return MaterialButton(
       onPressed: () {
-        FocusManager.instance.primaryFocus?.unfocus();
-        controller.checkCredentials().then(
-          (result) {
-            if (result == true) {
-              Get.toNamed('/authentication');
-            }
-          },
-        );
+        // FocusManager.instance.primaryFocus?.unfocus();
+        // controller.checkCredentials().then(
+        //   (result) {
+        //     if (result == true) {
+        Get.toNamed('/authentication');
+        //     }
+        //   },
+        // );
       },
       height: 60,
       minWidth: 220,
@@ -361,7 +369,7 @@ class SignupPage extends StatelessWidget {
           EdgeInsets.zero,
         ),
         overlayColor: WidgetStatePropertyAll(
-        Color(0xff8C8A8C),
+          Color(0xff8C8A8C),
         ),
       ),
       child: const Text(

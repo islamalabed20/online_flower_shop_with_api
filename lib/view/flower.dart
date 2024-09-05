@@ -7,7 +7,6 @@ import 'package:online_flower_shop_auth/core/widget/flowersbuttons.dart';
 import 'package:online_flower_shop_auth/core/widget/header.dart';
 import 'package:online_flower_shop_auth/view/filterpage.dart';
 
-
 class FlowersPage extends StatelessWidget {
   final FilterController filterController = Get.put(FilterController());
   FlowersPage({super.key});
@@ -22,10 +21,12 @@ class FlowersPage extends StatelessWidget {
             const SizedBox(
               height: 10,
             ),
-            const Text(
+            Text(
               'Flowers',
               style: TextStyle(
-                  color: Color(0xff3C2367),
+                  color: Theme.of(context).brightness == Brightness.dark
+                      ? Colors.white
+                      : Color(0xff3C2367),
                   fontWeight: FontWeight.w500,
                   fontSize: 32,
                   fontFamily: 'Montserrat'),

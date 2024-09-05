@@ -29,10 +29,10 @@ class CustomTextField extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return _buildWidget();
+    return _buildWidget(context);
   }
 
-  Widget _buildWidget() {
+  Widget _buildWidget(BuildContext context) {
     return Padding(
       padding: EdgeInsets.only(
         bottom: (errorText != null) ? 17 : 26,
@@ -47,9 +47,9 @@ class CustomTextField extends StatelessWidget {
           magnifierConfiguration: const TextMagnifierConfiguration(
             shouldDisplayHandlesInMagnifier: false,
           ),
-          style: AppTheme.textFieldLabelStyle.copyWith(
-            color: Color(0xff8C8A8C),
-          ),
+          // style: AppTheme.textFieldLabelStyle.copyWith(
+          //   color: Color(0xff8C8A8C),
+          // ),
           // onEditingComplete: onEditingComplete,
           onChanged: onChanged,
           decoration: AppTheme.textFieldDecoration(
@@ -58,6 +58,7 @@ class CustomTextField extends StatelessWidget {
             iconPath: iconPath,
             iconSize: iconSize,
             onPressed: onIconPressed,
+            context: context,
           ),
         ),
       ),
