@@ -27,7 +27,7 @@ class DioRequests {
         (certificate != null) ? certificate.path!.split('/').last : null;
     try {
       FormData formData = FormData.fromMap({
-        "username": username,
+        "user_name": username,
         "phone_number": phone,
         "email": email,
         "password": password,
@@ -58,17 +58,15 @@ class DioRequests {
   static Future<Response?> requestLogin({
     required String email,
     required String password,
-    required String phone,
   }) async {
     Response? response;
     try {
       FormData formData = FormData.fromMap({
-        "email": email,
-        "phone_number": phone,
+        "identifier": email,
         "password": password,
       });
       response = await _dioService.post(
-        url: "auth/login",
+        url: "login",
         data: formData,
       );
     } catch (e) {
@@ -81,7 +79,7 @@ class DioRequests {
     Response? response;
     try {
       response = await _dioService.post(
-        url: "auth/logout",
+        url: "logout",
         authToken: _settingsService.getToken(),
       );
     } catch (e) {
@@ -90,17 +88,16 @@ class DioRequests {
     return response;
   }
 
-  static Future<Response?> requestVerifyEmail({
-    required String code,
-  }) async {
+  static Future<Response?> requestVerifyEmail(
+      {required String code, required String email}) async {
     Response? response;
     try {
       FormData formData = FormData.fromMap({
-        "user_id": _settingsService.getUserId(),
+        "email": email,
         "verification_code": code,
       });
       response = await _dioService.post(
-        url: "auth/email/verify",
+        url: "verify-code",
         data: formData,
       );
     } catch (e) {
@@ -109,12 +106,33 @@ class DioRequests {
     return response;
   }
 
-  static Future<Response?> requestResendVerifyEmail() async {
+  static Future<Response?> request2FA(
+      {required String code, required String email}) async {
     Response? response;
     try {
+      FormData formData = FormData.fromMap({
+        "email": email,
+        "TwoFactorAuth": code,
+      });
       response = await _dioService.post(
-        url: "auth/email/verification",
+        url: "confirm-2fa-code",
+        data: formData,
       );
+    } catch (e) {
+      debugPrint("Verify Email API: $e");
+    }
+    return response;
+  }
+
+  static Future<Response?> requestResendVerifyEmail(
+      {required String email}) async {
+    Response? response;
+    try {
+      FormData formData = FormData.fromMap({
+        "email": email,
+      });
+      response = await _dioService.post(
+          url: "resend-verification-code", data: formData);
     } catch (e) {
       debugPrint("ٌResend Verify Email API: $e");
     }

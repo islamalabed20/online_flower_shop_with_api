@@ -1,20 +1,16 @@
 import 'dart:io';
-
 import 'package:dio/dio.dart';
 import 'package:get/utils.dart';
 import 'package:flutter/material.dart';
 import 'package:get/route_manager.dart';
 import 'package:get/state_manager.dart';
-import 'package:get/instance_manager.dart';
 import 'package:file_picker/file_picker.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:online_flower_shop_auth/core/utility/dio_request.dart';
-import 'package:online_flower_shop_auth/core/utility/settings_services.dart';
 import 'package:online_flower_shop_auth/core/widget/error_dialog.dart';
 import 'package:online_flower_shop_auth/core/widget/loading_dialog.dart';
 
 class SignupController extends GetxController {
-  final _settingsService = Get.find<SettingsService>();
   final usernameController = TextEditingController();
   final emailController = TextEditingController();
   final phoneController = TextEditingController();
@@ -265,34 +261,28 @@ class SignupController extends GetxController {
         switch (response.statusCode) {
           case 200:
             clearAllErrors();
-            // _settingsService.setUserId(
-            //   id: data['data']['id'],
-            //   rememberMe: true,
-            // );
-            // _settingsService.setToken(
-            //   newToken: data['token'],
-            //   rememberMe: true,
-            // );
-            return true;
+            if (response.statusCode == 200) {
+              return true;
+            } else {
+              return false;
+            }
           case 422:
-            if (data['errors']['email'] != null) {
-              emailError = data['errors']['email'][0];
-            }
-            if (data['errors']['phone_number'] != null) {
-              phoneError = data['errors']['phone_number'][0];
-            }
-            break;
-          case 404:
-            ErrorDialog.showDialog(
-              title: "Something went wrong on our side",
-              content: "Try again later or contact support",
+            List<String> messages = List<String>.from(data['message']);
+            String errorMessages = messages.join("\n");
+            Get.snackbar(
+              "Validation Error",
+              errorMessages,
+              snackPosition: SnackPosition.TOP,
+              backgroundColor: Colors.red,
+              colorText: Colors.white,
+              duration: const Duration(seconds: 3),
             );
-            throw Exception("The route api/auth/signup could not be found.");
+            return false;
+
           default:
             throw Exception(
                 "Unknown response status code: ${response.toString()}");
         }
-        throw Exception(response.toString());
       }
     } catch (e) {
       debugPrint("Signup Controller: $e");

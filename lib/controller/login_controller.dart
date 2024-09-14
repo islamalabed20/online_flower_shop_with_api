@@ -3,27 +3,19 @@ import 'package:get/utils.dart';
 import 'package:flutter/material.dart';
 import 'package:get/route_manager.dart';
 import 'package:get/state_manager.dart';
-import 'package:get/instance_manager.dart';
 import 'package:online_flower_shop_auth/core/utility/dio_request.dart';
-import 'package:online_flower_shop_auth/core/utility/settings_services.dart';
 import 'package:online_flower_shop_auth/core/widget/error_dialog.dart';
-import 'package:online_flower_shop_auth/core/widget/incorrect_info_dialog.dart';
 import 'package:online_flower_shop_auth/core/widget/loading_dialog.dart';
 
-
 class LoginController extends GetxController {
-  final _settingsService = Get.find<SettingsService>();
   final emailController = TextEditingController();
   final phoneController = TextEditingController();
   final passwordController = TextEditingController();
   String? _emailError, _phoneError, _passwordError;
-  bool _rememberMe, _hidePassword;
+  bool _hidePassword;
 
-  LoginController()
-      : _rememberMe = false,
-        _hidePassword = true;
+  LoginController() : _hidePassword = true;
 
-  bool get rememberMe => _rememberMe;
   bool get hidePassword => _hidePassword;
   String? get emailError => _emailError;
   String? get phoneError => _phoneError;
@@ -92,11 +84,6 @@ class LoginController extends GetxController {
     return (_passwordError == null) ? true : false;
   }
 
-  void toggleRememberMe() {
-    _rememberMe = !_rememberMe;
-    update(['remember_me']);
-  }
-
   void toggleShowPassword() {
     _hidePassword = !_hidePassword;
     update(['password']);
@@ -108,9 +95,8 @@ class LoginController extends GetxController {
 
   Future<bool> checkCredentials() async {
     bool isEmailValid = validateEmail();
-    bool isPhoneValid = validatePhone();
     bool isPasswordValid = validatePassword();
-    if (!isEmailValid || !isPhoneValid || !isPasswordValid) {
+    if (!isEmailValid || !isPasswordValid) {
       return false;
     } else {
       LoadingDialog.showDialog();
@@ -124,7 +110,6 @@ class LoginController extends GetxController {
       response = await DioRequests.requestLogin(
         email: emailController.value.text,
         password: passwordController.value.text,
-        phone: phoneController.value.text,
       );
       Get.back();
       if (response == null) {
@@ -135,54 +120,54 @@ class LoginController extends GetxController {
         switch (response.statusCode) {
           case 200:
             clearAllErrors();
-            _settingsService.setToken(
-              newToken: data['token'],
-              rememberMe: _rememberMe,
-            );
-            _settingsService.setUserId(
-              id: data['data']['id'],
-              rememberMe: _rememberMe,
-            );
-            _settingsService.setLoginState(
-              isLoggedIn: true,
-              rememberMe: _rememberMe,
-            );
-            _settingsService.printInfo();
-            return true;
-          case 404:
-            emailError = "Email is not registered yet";
-            IncorrectInfoDialog.showDialog(
-              content: _emailError,
-            );
-            break;
-          case 401:
-            Get.toNamed("/authentication");
-            IncorrectInfoDialog.showDialog(
-              content: "Verify your email then try again",
-            );
-            break;
-          case 422:
-            final String message;
-            if (data['message'] == "Invalid password") {
-              message = "Password is incorrect";
-              passwordError = message;
+            if (response.statusCode == 200) {
+              return true;
             } else {
-              message = "Phone number is incorrect";
-              phoneError = message;
+              return false;
             }
-            IncorrectInfoDialog.showDialog(
-              content: message,
+          case 400:
+            Get.snackbar(
+              "Bad Request",
+              "Invalid password or email, please try again.",
+              snackPosition: SnackPosition.BOTTOM,
+              backgroundColor: Colors.red,
+              colorText: Colors.white,
+              duration: const Duration(seconds: 3),
             );
-            break;
+            return false;
+          case 404:
+            // User not found
+            Get.snackbar(
+              "Not Found",
+              "There is no user for this identifier.",
+              snackPosition: SnackPosition.BOTTOM,
+              backgroundColor: Colors.orange,
+              colorText: Colors.white,
+              duration: const Duration(seconds: 3),
+            );
+            return false;
+
+          case 422:
+            // Validation errors
+            List<String> messages = List<String>.from(data['message']);
+            String errorMessages = messages.join("\n");
+            Get.snackbar(
+              "Validation Error",
+              errorMessages,
+              snackPosition: SnackPosition.BOTTOM,
+              backgroundColor: Colors.red,
+              colorText: Colors.white,
+              duration: const Duration(seconds: 3),
+            );
+            return false;
           default:
             throw Exception(
                 "Unknown response status code: ${response.toString()}");
         }
-        throw Exception(response.toString());
       }
     } catch (e) {
-      debugPrint("Login Controller: $e");
-      debugPrint("Login Controller: $response");
+      debugPrint("Signup Controller: $e");
+      debugPrint("Signup Controller: $response");
       return false;
     }
   }

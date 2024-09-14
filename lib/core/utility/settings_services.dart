@@ -1,3 +1,5 @@
+import 'dart:async';
+
 import 'package:flutter/foundation.dart';
 import 'package:get/get.dart';
 import 'package:get_storage/get_storage.dart';
@@ -5,6 +7,7 @@ import 'package:online_flower_shop_auth/model/user_info.dart';
 
 class SettingsService extends GetxService {
   static final GetStorage _getStorage = GetStorage();
+  Timer? _timer;
   static Future<SettingsService> init() async {
     await _getStorage.initStorage;
     return SettingsService();
@@ -13,14 +16,12 @@ class SettingsService extends GetxService {
   late final UserInfo _userInfo;
 
   SettingsService() {
-    _getStorage.writeIfNull('user_id', null);
-    _getStorage.writeIfNull('token', null);
+    _getStorage.writeIfNull('access_token', null);
     _getStorage.writeIfNull('is_logged_in', null);
     _userInfo = UserInfo.fromMap(
       Map<String, dynamic>.from(
         {
-          'user_id': _getStorage.read('user_id'),
-          'token': _getStorage.read('token'),
+          'access_token': _getStorage.read('access_token'),
           'is_logged_in': _getStorage.read('is_logged_in'),
         },
       ),
@@ -29,46 +30,25 @@ class SettingsService extends GetxService {
 
   void setToken({
     required String newToken,
-    required bool rememberMe,
   }) {
     _userInfo.token = newToken;
-    if (rememberMe) {
-      GetStorage().write('token', newToken);
-    } else {
-      GetStorage().write('token', "");
-    }
   }
 
   String getToken() {
     return _userInfo.token;
   }
 
-  void setUserId({
-    required int id,
-    required bool rememberMe,
-  }) {
-    _userInfo.userId = id;
-    if (rememberMe) {
-      GetStorage().write('user_id', id);
-    } else {
-      GetStorage().write('user_id', -1);
-    }
-  }
-
-  int getUserId() {
-    return _userInfo.userId;
-  }
-
   void setLoginState({
     required bool isLoggedIn,
-    required bool rememberMe,
   }) {
     _userInfo.isLoggedIn = isLoggedIn;
-    if (rememberMe) {
-      GetStorage().write('is_logged_in', isLoggedIn);
-    } else {
-      GetStorage().write('is_logged_in', false);
-    }
+  }
+
+  void startTokenExpiryTimer(int expiresIn) {
+    _timer?.cancel();
+    _timer = Timer(Duration(seconds: expiresIn), () {
+      logout(); // Auto logout when token expires
+    });
   }
 
   bool isLoggedIn() {
@@ -76,7 +56,6 @@ class SettingsService extends GetxService {
   }
 
   void logout() {
-    _getStorage.write('user_id', null);
     _getStorage.write('token', null);
     _getStorage.write('is_logged_in', null);
     _userInfo.clearData();

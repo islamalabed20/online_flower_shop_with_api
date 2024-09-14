@@ -32,7 +32,7 @@ class DioService extends GetxService {
         url,
         options: Options(
           validateStatus: (status) {
-            if (status != null && status >= 200 && status <= 422) {
+            if (status != null && status >= 200) {
               return true;
             } else {
               return false;
@@ -45,7 +45,7 @@ class DioService extends GetxService {
                   'Authorization': 'Bearer $authToken',
                 }
               : {
-                  'accept': 'application/json',
+                  'accept': '*/*',
                 },
         ),
         data: data,
