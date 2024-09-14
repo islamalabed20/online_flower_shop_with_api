@@ -17,7 +17,7 @@ class FlowersPage extends StatelessWidget {
       body: SingleChildScrollView(
         child: Column(
           children: [
-            const Header(),
+             Header(),
             const SizedBox(
               height: 10,
             ),
@@ -26,7 +26,7 @@ class FlowersPage extends StatelessWidget {
               style: TextStyle(
                   color: Theme.of(context).brightness == Brightness.dark
                       ? Colors.white
-                      : Color(0xff3C2367),
+                      : const Color(0xff3C2367),
                   fontWeight: FontWeight.w500,
                   fontSize: 32,
                   fontFamily: 'Montserrat'),
@@ -76,7 +76,7 @@ class FlowersPage extends StatelessWidget {
           ],
         ),
       ),
-      bottomNavigationBar: const CustomBottomBar(),
+      bottomNavigationBar:  CustomBottomBar(),
     );
   }
 }

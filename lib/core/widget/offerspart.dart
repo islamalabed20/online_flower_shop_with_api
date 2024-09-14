@@ -1,4 +1,3 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 class OffersPart extends StatelessWidget {
@@ -15,7 +14,7 @@ class OffersPart extends StatelessWidget {
               fontSize: 20,
               color: Theme.of(context).brightness == Brightness.dark
                   ? Colors.white
-                  : Color(0xff3C2367),
+                  : const Color(0xff3C2367),
               fontWeight: FontWeight.w700,
               fontFamily: 'Montserrat'),
         ),

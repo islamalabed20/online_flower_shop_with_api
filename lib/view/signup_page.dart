@@ -3,7 +3,6 @@ import 'package:get/get.dart';
 import 'package:online_flower_shop_auth/controller/signup_controller.dart';
 import 'package:online_flower_shop_auth/core/theme/app_theme.dart';
 import 'package:online_flower_shop_auth/core/widget/customtextfield.dart';
-import 'package:online_flower_shop_auth/core/widget/image_picker_dialog.dart';
 
 class SignupPage extends StatelessWidget {
   SignupPage({super.key});
@@ -182,7 +181,6 @@ class SignupPage extends StatelessWidget {
                         ),
                       ),
                       SizedBox(
-                        // height: _deviceHeight * 0.12,
                         child: Padding(
                           padding: const EdgeInsets.symmetric(horizontal: 30.0),
                           child: Column(
@@ -299,14 +297,17 @@ class SignupPage extends StatelessWidget {
   Widget _selectProfilePicture() {
     return MaterialButton(
       onPressed: () {
-        ImagePickerDialog.showDialog();
+        Get.find<SignupController>()
+            .getImageFromGallery(); // Trigger image picker
       },
       shape: const CircleBorder(),
       child: GetBuilder<SignupController>(
-        id: 'profile_picture',
+        id: 'profile_picture', // Update only when this specific id is triggered
         builder: (controller) {
           if (controller.image != null) {
             return Container(
+              width: 80, // Add width and height for the image container
+              height: 80,
               clipBehavior: Clip.hardEdge,
               decoration: BoxDecoration(
                 shape: BoxShape.circle,
@@ -331,14 +332,25 @@ class SignupPage extends StatelessWidget {
   Widget _signupButton() {
     return MaterialButton(
       onPressed: () {
-        // FocusManager.instance.primaryFocus?.unfocus();
-        // controller.checkCredentials().then(
-        //   (result) {
-        //     if (result == true) {
-        Get.toNamed('/authentication');
-        //     }
-        //   },
-        // );
+        FocusManager.instance.primaryFocus?.unfocus();
+        controller.checkCredentials().then(
+          (result) {
+            if (result == true) {
+              Get.snackbar(
+                "Success",
+                "User registered, check your email for verification code.",
+                snackPosition: SnackPosition.TOP,
+                backgroundColor: Colors.green,
+                colorText: Colors.white,
+                duration: const Duration(seconds: 4),
+              );
+              Get.toNamed('/authentication', arguments: {
+                'email': controller.emailController.value.text,
+                'verificationType': 'register'
+              });
+            }
+          },
+        );
       },
       height: 60,
       minWidth: 220,

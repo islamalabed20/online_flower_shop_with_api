@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:online_flower_shop_auth/controller/signup_controller.dart';
 import 'package:online_flower_shop_auth/view/home.dart';
 import 'package:online_flower_shop_auth/view/mycart.dart';
 import 'package:online_flower_shop_auth/view/setting.dart';
-
 
 class CustomBottomBar extends StatelessWidget {
   const CustomBottomBar({super.key});
@@ -26,7 +26,7 @@ class CustomBottomBar extends StatelessWidget {
           children: [
             InkWell(
                 onTap: () {
-                  Get.to(const HomePage());
+                  Get.to(HomePage());
                 },
                 child: Image.asset(
                   "assets/images/home.png",

@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:online_flower_shop_auth/controller/Authentication_controller.dart';
-import 'package:online_flower_shop_auth/core/widget/success_bottom_sheet.dart';
+import 'package:online_flower_shop_auth/controller/authentication_controller.dart';
 import 'package:pinput/pinput.dart';
 
 class VerificationCodePage extends StatelessWidget {
   final controller = Get.find<AuthenticationController>();
+  final String verificationType = Get.arguments['verificationType'];
   VerificationCodePage({super.key});
 
   @override
@@ -97,19 +97,38 @@ class VerificationCodePage extends StatelessWidget {
                     const SizedBox(
                       height: 7,
                     ),
-                    Text(
-                      '21'.tr,
-                      style: TextStyle(
-                          color: Theme.of(context).brightness == Brightness.dark
-                              ? const Color(0xffA08EA4)
-                              : const Color(0xff3C2367),
-                          fontFamily: 'Montserrat',
-                          fontSize: 20),
+                    InkWell(
+                      onTap: () {
+                        FocusManager.instance.primaryFocus?.unfocus();
+                        if (verificationType == 'register') {
+                          Future.delayed(
+                            const Duration(milliseconds: 400),
+                            () => controller.resendVerificationCode(),
+                          );
+                        } else if (verificationType == 'login') {
+                          Future.delayed(
+                            const Duration(milliseconds: 400),
+                            () => controller.resend2faCode(),
+                          );
+                        }
+                      },
+                      child: Text(
+                        '21'.tr,
+                        style: TextStyle(
+                            color:
+                                Theme.of(context).brightness == Brightness.dark
+                                    ? const Color(0xffA08EA4)
+                                    : const Color(0xff3C2367),
+                            fontFamily: 'Montserrat',
+                            fontSize: 20),
+                      ),
                     ),
                     Pinput(
                       length: 6,
+                      controller: controller.codeController,
                       obscureText: true,
                       obscuringCharacter: '*',
+                      keyboardType: TextInputType.text,
                       defaultPinTheme: pinTheme,
                       focusedPinTheme: pinTheme.copyWith(
                           decoration: pinTheme.decoration!.copyWith(
@@ -149,12 +168,32 @@ class VerificationCodePage extends StatelessWidget {
                       onPressed: () {
                         FocusManager.instance.primaryFocus?.unfocus();
                         Future.delayed(
-                          const Duration(milliseconds: 100),
+                          const Duration(milliseconds: 400),
                           () => controller.validateInput(),
                         ).then(
-                          (result) async {
+                          (result) {
                             if (result == true) {
-                              await SuccessBottomSheet.showBottomSheet();
+                              if (verificationType == 'register') {
+                                Get.snackbar(
+                                  "Success",
+                                  "Your account is verified. Enjoy the app!",
+                                  snackPosition: SnackPosition.TOP,
+                                  duration: const Duration(seconds: 3),
+                                  backgroundColor: Colors.green,
+                                  colorText: Colors.white,
+                                );
+                                Get.offAllNamed('/login');
+                              } else if (verificationType == 'login') {
+                                Get.snackbar(
+                                  "Success",
+                                  "you are ready , enjoy our app!",
+                                  snackPosition: SnackPosition.TOP,
+                                  duration: const Duration(seconds: 3),
+                                  backgroundColor: Colors.green,
+                                  colorText: Colors.white,
+                                );
+                                Get.offAllNamed('/home');
+                              }
                             }
                           },
                         );

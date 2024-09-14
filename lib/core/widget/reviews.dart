@@ -42,7 +42,7 @@ class Reviews extends StatelessWidget {
                   )
                 ],
               ),
-              SizedBox(
+              const SizedBox(
                 height: 24,
               ),
               Row(
@@ -53,7 +53,7 @@ class Reviews extends StatelessWidget {
                             color: Theme.of(context).brightness ==
                                     Brightness.dark
                                 ? const Color(0xFFFAF7F7) // Color for dark mode
-                                : Color(0xff6E6D6D),
+                                : const Color(0xff6E6D6D),
                             fontFamily: 'Roboto',
                             fontSize: 20,
                             fontWeight: FontWeight.w400),
@@ -72,7 +72,7 @@ class Reviews extends StatelessWidget {
                             ? Icons.star // Selected star
                             : Icons.star_border, // Unselected star
                         color: index < ratingController.rating.value
-                            ? Color(0xffDBDF42) // Selected star color
+                            ? const Color(0xffDBDF42) // Selected star color
                             : Colors.black, // Unselected star border color
                         size: 20.0,
                       ),
@@ -87,11 +87,11 @@ class Reviews extends StatelessWidget {
           thickness: 3,
           color: Color(0xffE5F5F5),
         ),
-        SizedBox(
+        const SizedBox(
           height: 30,
         ),
         Container(
-          decoration: BoxDecoration(),
+          decoration: const BoxDecoration(),
         )
       ],
     );

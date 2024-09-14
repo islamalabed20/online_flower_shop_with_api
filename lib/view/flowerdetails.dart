@@ -18,7 +18,7 @@ class FlowerDetails extends StatelessWidget {
       body: SingleChildScrollView(
         child: Column(
           children: [
-            const Header(),
+             Header(),
             const SizedBox(
               height: 31,
             ),
@@ -42,7 +42,7 @@ class FlowerDetails extends StatelessWidget {
                       fontFamily: 'Montserrat',
                       color: Theme.of(context).brightness == Brightness.dark
                           ? const Color(0xFFFAF7F7) // Color for dark mode
-                          : Color(0xff3C2367),
+                          : const Color(0xff3C2367),
                     ),
                   ),
                   const SizedBox(
@@ -68,7 +68,7 @@ class FlowerDetails extends StatelessWidget {
               color: Color(0xffF3E9F5),
             ),
             Padding(
-              padding: EdgeInsets.symmetric(horizontal: 30),
+              padding: const EdgeInsets.symmetric(horizontal: 30),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
@@ -80,13 +80,13 @@ class FlowerDetails extends StatelessWidget {
                       fontFamily: 'Montserrat',
                       color: Theme.of(context).brightness == Brightness.dark
                           ? const Color(0xFFFAF7F7) // Color for dark mode
-                          : Color(0xff3C2367),
+                          : const Color(0xff3C2367),
                     ),
                   ),
-                  SizedBox(
+                  const SizedBox(
                     height: 10,
                   ),
-                  Text(
+                  const Text(
                     'White orchids are elegant and timeless flowers that symbolize purity, beauty, and refinement. Known for their pristine white petals and intricate blooms, they are a favorite in both floral arrangements and home decor. White orchids are often associated with luxury and grace, making them a popular choice for weddings, anniversaries, and other special occasions.',
                     style: TextStyle(
                         fontFamily: 'Roboto',
@@ -101,7 +101,7 @@ class FlowerDetails extends StatelessWidget {
               color: Color(0xffF3E9F5),
             ),
             Padding(
-              padding: EdgeInsets.symmetric(horizontal: 30),
+              padding: const EdgeInsets.symmetric(horizontal: 30),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
@@ -113,13 +113,13 @@ class FlowerDetails extends StatelessWidget {
                       fontFamily: 'Montserrat',
                       color: Theme.of(context).brightness == Brightness.dark
                           ? const Color(0xFFFAF7F7) // Color for dark mode
-                          : Color(0xff3C2367),
+                          : const Color(0xff3C2367),
                     ),
                   ),
-                  SizedBox(
+                  const SizedBox(
                     height: 10,
                   ),
-                  Text(
+                  const Text(
                     'Place your orchid in bright, indirect light and maintain a temperature between 65-75°F. Water weekly, allowing the medium to dry slightly, and maintain 50-70% humidity. Use orchid fertilizer monthly and repot every 1-2 years with specialized medium. Prune dead blooms and check regularly for pests to keep it healthy.',
                     style: TextStyle(
                         fontFamily: 'Roboto',
@@ -211,7 +211,7 @@ class FlowerDetails extends StatelessWidget {
                       fontFamily: 'Montserrat',
                       color: Theme.of(context).brightness == Brightness.dark
                           ? const Color(0xFFFAF7F7) // Color for dark mode
-                          : Color(0xff3C2367),
+                          : const Color(0xff3C2367),
                     ),
                   ),
                   const SizedBox(
@@ -267,7 +267,7 @@ class FlowerDetails extends StatelessWidget {
           ],
         ),
       ),
-      bottomNavigationBar: const CustomBottomBar(),
+      bottomNavigationBar:  CustomBottomBar(),
     );
   }
 }

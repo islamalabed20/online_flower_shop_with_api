@@ -4,31 +4,37 @@ import 'package:get/get.dart';
 class PaymentController extends GetxController {
   var currentPage = 0.obs;
   late PageController pageController;
-  var selectedOption = 'Yes'.obs; 
+  var selectedOption = 'Yes'.obs;
 
   @override
   void onInit() {
     super.onInit();
-    pageController = PageController(initialPage: 0);
+    pageController = PageController(); 
+    currentPage.value = 0; 
   }
 
   void nextPage() {
     if (currentPage.value < 1) {
       currentPage.value++;
-      pageController.animateToPage(
-        currentPage.value,
-        duration: Duration(milliseconds: 300),
-        curve: Curves.easeInOut,
-      );
+      WidgetsBinding.instance.addPostFrameCallback((_) {
+        if (pageController.hasClients) {
+          pageController.animateToPage(
+            currentPage.value,
+            duration: const Duration(milliseconds: 100),
+            curve: Curves.easeInOut,
+          );
+        }
+      });
     }
   }
+
   void selectOption(String value) {
     selectedOption.value = value;
   }
 
   @override
-  void onClose() {
-    pageController.dispose();
-    super.onClose();
+  void dispose() {
+    pageController.dispose(); // Dispose the controller to free resources
+    super.dispose();
   }
 }

@@ -31,7 +31,7 @@ class ImagePickerDialog extends StatelessWidget {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
           children: [
-            Text(
+            const Text(
               "Pick a photo",
               textAlign: TextAlign.center,
               style: TextStyle(
@@ -108,19 +108,19 @@ class ImagePickerDialog extends StatelessWidget {
                 shape: BoxShape.circle,
                 border: Border.all(
                   width: 3,
-                  color: Color(0xff8C8A8C),
+                  color: const Color(0xff8C8A8C),
                 ),
               ),
               child: Icon(
                 icon,
                 size: 50,
-                color: Color(0xff8C8A8C),
+                color: const Color(0xff8C8A8C),
               ),
             ),
             Text(
               label,
               textAlign: TextAlign.center,
-              style: TextStyle(
+              style: const TextStyle(
                 fontSize: 17,
                 color: AppTheme.blackColor,
                 fontFamily: 'Cabin',
@@ -142,14 +142,14 @@ class ImagePickerDialog extends StatelessWidget {
       hoverElevation: 0,
       highlightElevation: 0,
       minWidth: _deviceWidth * 0.3,
-      color: Color(0xff8C8A8C),
+      color: const Color(0xff8C8A8C),
       shape: RoundedRectangleBorder(
         borderRadius: BorderRadius.circular(20),
       ),
       child: Text(
         label,
-        style: TextStyle(
-          color: Color(0xff8C8A8C),
+        style: const TextStyle(
+          color: Colors.white,
           fontSize: 16,
         ),
       ),

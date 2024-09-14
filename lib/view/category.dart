@@ -3,6 +3,8 @@ import 'package:get/get.dart';
 import 'package:online_flower_shop_auth/view/flower.dart';
 
 class CategoriesCart extends StatelessWidget {
+  const CategoriesCart({super.key});
+
   @override
   Widget build(BuildContext context) {
     return Container(

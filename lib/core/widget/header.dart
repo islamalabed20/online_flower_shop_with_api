@@ -9,7 +9,13 @@ class Header extends StatelessWidget {
     return Stack(
       alignment: Alignment.center,
       children: [
-        Image.asset('assets/images/Rectangle42.png'),
+        Container(
+          height: 297,
+          width: double.infinity,
+          decoration: const BoxDecoration(
+              color: Color(0xffE6F6F6),
+              borderRadius: BorderRadius.only(bottomLeft: Radius.circular(61))),
+        ),
         Column(
           children: [
             const SizedBox(
@@ -82,7 +88,7 @@ class Header extends StatelessWidget {
                           button.localToGlobal(Offset.zero).dy,
                         ),
                         items: [
-                          PopupMenuItem(
+                          const PopupMenuItem(
                             padding: EdgeInsets.zero, // Remove default padding
                             child: CategoriesCart(),
                           ),

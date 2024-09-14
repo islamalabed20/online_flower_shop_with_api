@@ -20,7 +20,7 @@ class ErrorDialog extends StatelessWidget {
     String? title,
     String? content,
     String? buttonLabel,
-    void Function()? onPressed,
+    void Function()? onPressed, 
   }) async {
     await Get.dialog(
       PopScope(
@@ -58,7 +58,7 @@ class ErrorDialog extends StatelessWidget {
                 mainAxisSize: MainAxisSize.max,
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  Align(
+                  const Align(
                     alignment: Alignment.center,
                     child: Text(
                       "Oh no!",
@@ -74,7 +74,7 @@ class ErrorDialog extends StatelessWidget {
                     child: Text(
                       title ?? "Something went wrong.",
                       textAlign: TextAlign.center,
-                      style: TextStyle(
+                      style: const TextStyle(
                         color: AppTheme.blackColor,
                         fontSize: 16,
                       ),
@@ -85,7 +85,7 @@ class ErrorDialog extends StatelessWidget {
                     child: Text(
                       content ?? "Please try again.",
                       textAlign: TextAlign.center,
-                      style: TextStyle(
+                      style: const TextStyle(
                         color: AppTheme.blackColor,
                         fontSize: 14,
                       ),
@@ -123,13 +123,13 @@ class ErrorDialog extends StatelessWidget {
           elevation: 0,
           hoverElevation: 0,
           highlightElevation: 0,
-          color: Color(0xff8C8A8C),
+          color: const Color(0xff8C8A8C),
           shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.circular(50),
           ),
           child: Text(
             buttonLabel ?? "Try again",
-            style: TextStyle(
+            style: const TextStyle(
               color: AppTheme.offWhiteColor,
               fontSize: 14,
             ),

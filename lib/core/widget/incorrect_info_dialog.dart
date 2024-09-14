@@ -39,12 +39,12 @@ class IncorrectInfoDialog extends StatelessWidget {
         width: 350,
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(20),
-          boxShadow: [
+          boxShadow: const [
             BoxShadow(
               color: AppTheme.greyColor,
               blurRadius: 10,
               blurStyle: BlurStyle.outer,
-              offset: const Offset(0, 0),
+              offset: Offset(0, 0),
             )
           ],
         ),
@@ -59,7 +59,7 @@ class IncorrectInfoDialog extends StatelessWidget {
                   child: Text(
                     title ?? "Sorry!",
                     textAlign: TextAlign.center,
-                    style: TextStyle(
+                    style: const TextStyle(
                       fontFamily: 'Cabin',
                       color:Color(0xff8C8A8C),
                       fontSize: 32,
@@ -71,7 +71,7 @@ class IncorrectInfoDialog extends StatelessWidget {
                   child: Text(
                     content ?? "Incorrect password or email",
                     textAlign: TextAlign.center,
-                    style: TextStyle(
+                    style: const TextStyle(
                       fontFamily: 'Cabin',
                       color: Color(0xff8C8A8C),
                       fontSize: 20,

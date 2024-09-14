@@ -23,12 +23,12 @@ class CustomSettingMenu extends StatelessWidget {
                 children: [
                   Text(
                     text,
-                    style: TextStyle(
+                    style: const TextStyle(
                         fontFamily: 'Montserrat',
                         color: Color(0xff8C8A8C),
                         fontSize: 12),
                   ),
-                  SizedBox(
+                  const SizedBox(
                     width: 10,
                   ),
                   Image.asset('assets/images/left-arrow3.png')

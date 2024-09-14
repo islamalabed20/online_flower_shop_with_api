@@ -17,7 +17,7 @@ class FlowerButtons extends StatelessWidget {
         onPressed: () {
           onPressed;
         },
-        color: Color(0xffE6F6F6),
+        color: const Color(0xffE6F6F6),
         textColor: const Color(0xFF8F8F8F),
         child: Text(text,
             style: const TextStyle(

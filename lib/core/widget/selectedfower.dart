@@ -21,7 +21,7 @@ class SelectedFlower extends StatelessWidget {
               border: Border.all(
                 color: Theme.of(context).brightness == Brightness.dark
                     ? const Color(0xFFFAF7F7) // Color for dark mode
-                    : Color(0xff3C2367), //
+                    : const Color(0xff3C2367), //
                 width: 3.0,
               )),
           width: 330,
@@ -51,7 +51,7 @@ class SelectedFlower extends StatelessWidget {
                       style: TextStyle(
                           color: Theme.of(context).brightness == Brightness.dark
                               ? const Color(0xFFFAF7F7) // Color for dark mode
-                              : Color(0xff3C2367), //
+                              : const Color(0xff3C2367), //
                           fontFamily: 'Montserrat',
                           fontSize: 18,
                           fontWeight: FontWeight.w800),

@@ -28,7 +28,7 @@ class FlowerColor extends StatelessWidget {
               color: isSelected
                   ? Theme.of(context).brightness == Brightness.dark
                       ? const Color(0xFFFAF7F7) // Color for dark mode
-                      : Color(0xff3C2367)
+                      : const Color(0xff3C2367)
                   : Colors.transparent,
               width: 2.0,
             ),

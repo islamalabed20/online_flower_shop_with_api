@@ -9,18 +9,12 @@ class HomePage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    // ScreenUtil.init(
-    //   context,
-    //   designSize: const Size(360, 690), // Specify your design size here
-    //   minTextAdapt: true,
-    //   splitScreenMode: true,
-    // );
     return Scaffold(
       body: SingleChildScrollView(
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
-            const Header(),
+             Header(),
             const SizedBox(
               height: 10,
             ),
@@ -29,7 +23,7 @@ class HomePage extends StatelessWidget {
               style: TextStyle(
                   color: Theme.of(context).brightness == Brightness.dark
                       ? Colors.white
-                      : Color(0xff3C2367),
+                      : const Color(0xff3C2367),
                   fontWeight: FontWeight.w700,
                   fontSize: 20,
                   fontFamily: 'Montserrat'),
@@ -52,7 +46,7 @@ class HomePage extends StatelessWidget {
                   style: TextStyle(
                     color: Theme.of(context).brightness == Brightness.dark
                         ? Colors.white
-                        : Color(0xff8C8A8C),
+                        : const Color(0xff8C8A8C),
                   )),
             ),
             const SizedBox(
@@ -77,7 +71,7 @@ class HomePage extends StatelessWidget {
                         fontSize: 20,
                         color: Theme.of(context).brightness == Brightness.dark
                             ? Colors.white
-                            : Color(0xff3C2367),
+                            : const Color(0xff3C2367),
                         fontWeight: FontWeight.w700,
                         fontFamily: 'Montserrat'),
                   ),

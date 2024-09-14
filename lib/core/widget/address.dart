@@ -36,7 +36,7 @@ class AddressField extends StatelessWidget {
             labelStyle: TextStyle(
               color: Theme.of(context).brightness == Brightness.dark
                   ? Colors.white
-                  : Color(0xff8C8A8C),
+                  : const Color(0xff8C8A8C),
             ),
             contentPadding: const EdgeInsets.symmetric(
               vertical: 10.0,
@@ -65,7 +65,7 @@ class AddressField extends StatelessWidget {
             labelStyle: TextStyle(
               color: Theme.of(context).brightness == Brightness.dark
                   ? Colors.white
-                  : Color(0xff8C8A8C),
+                  : const Color(0xff8C8A8C),
             ),
             contentPadding: const EdgeInsets.symmetric(
               vertical: 10.0,

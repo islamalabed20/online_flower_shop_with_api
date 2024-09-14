@@ -19,7 +19,7 @@ class FilterPage extends StatelessWidget {
       body: SingleChildScrollView(
         child: Column(
           children: [
-            const Header(),
+             Header(),
             const SizedBox(
               height: 10,
             ),
@@ -109,7 +109,7 @@ class FilterPage extends StatelessWidget {
           ],
         ),
       ),
-      bottomNavigationBar: const CustomBottomBar(),
+      bottomNavigationBar:  CustomBottomBar(),
     );
   }
 }

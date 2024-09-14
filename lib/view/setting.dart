@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:online_flower_shop_auth/controller/authentication_controller.dart';
 import 'package:online_flower_shop_auth/core/widget/customsetting.dart';
 import 'package:online_flower_shop_auth/core/widget/custumbottombar.dart';
-import 'package:online_flower_shop_auth/view/login.dart';
 
 class SettingPage extends StatelessWidget {
   const SettingPage({super.key});
@@ -11,12 +11,12 @@ class SettingPage extends StatelessWidget {
   Widget build(BuildContext context) {
     // i add this controller to test the arrow back
     Get.put(());
+    final controller = Get.put(AuthenticationController());
     //
     return Scaffold(
       backgroundColor: Colors.white,
       resizeToAvoidBottomInset: false,
       body: SizedBox(
-        //height: Get.height,
         child: SingleChildScrollView(
           child: Column(
             children: [
@@ -61,7 +61,7 @@ class SettingPage extends StatelessWidget {
                       ),
                       CustomSettingMenu(
                         onPressed: () {},
-                        text: 'Security Sittings',
+                        text: 'Security Settings',
                       ),
                       CustomSettingMenu(
                         onPressed: () {},
@@ -69,7 +69,7 @@ class SettingPage extends StatelessWidget {
                       ),
                       CustomSettingMenu(
                         onPressed: () {},
-                        text: 'Language Sittings',
+                        text: 'Language Settings',
                       ),
                       CustomSettingMenu(
                         onPressed: () {},
@@ -81,183 +81,8 @@ class SettingPage extends StatelessWidget {
                       ),
                       CustomSettingMenu(
                         onPressed: () {
-                          showDialog(
-                            context: context,
-                            builder: (BuildContext context) {
-                              return Dialog(
-                                  shape: RoundedRectangleBorder(
-                                    borderRadius: BorderRadius.circular(26),
-                                  ),
-                                  child: IntrinsicHeight(
-                                    child: Container(
-                                      decoration: const BoxDecoration(
-                                          borderRadius: BorderRadius.all(
-                                              Radius.circular(15)),
-                                          color: Color(0xffffffff)),
-                                      child: Padding(
-                                        padding: const EdgeInsets.symmetric(
-                                            horizontal: 26.0),
-                                        child: Column(
-                                          children: [
-                                            const Text(''),
-                                            const Text(
-                                                style: TextStyle(
-                                                    fontFamily: 'Montserrat',
-                                                    fontWeight: FontWeight.w500,
-                                                    fontSize: 16,
-                                                    color: Color(0xff8C8A8C)),
-                                                'Are you sure you want to logout'),
-                                            const SizedBox(
-                                              height: 30,
-                                            ),
-                                            Row(
-                                              children: [
-                                                Expanded(
-                                                  child: Column(
-                                                    children: [
-                                                      Container(
-                                                        margin: const EdgeInsets
-                                                            .only(top: 10),
-                                                        child: MaterialButton(
-                                                          padding:
-                                                              const EdgeInsets
-                                                                  .symmetric(
-                                                            vertical: 13,
-                                                          ),
-                                                          onPressed: () {
-                                                            showDialog(
-                                                              context: context,
-                                                              builder:
-                                                                  (BuildContext
-                                                                      context) {
-                                                                return AlertDialog(
-                                                                    content:
-                                                                        IntrinsicHeight(
-                                                                  child:
-                                                                      Container(
-                                                                    decoration: const BoxDecoration(
-                                                                        borderRadius:
-                                                                            BorderRadius.all(Radius.circular(
-                                                                                15)),
-                                                                        color: Color(
-                                                                            0xffffffff)),
-                                                                    child:
-                                                                        Padding(
-                                                                      padding: const EdgeInsets
-                                                                          .symmetric(
-                                                                          horizontal:
-                                                                              26.0),
-                                                                      child:
-                                                                          Column(
-                                                                        children: [
-                                                                          const Text(
-                                                                              ''),
-                                                                          const Text(
-                                                                              style: TextStyle(fontFamily: 'Montserrat', fontWeight: FontWeight.w500, fontSize: 16, color: Color(0xff8C8A8C)),
-                                                                              'You successfully logged out'),
-                                                                          const SizedBox(
-                                                                            height:
-                                                                                30,
-                                                                          ),
-                                                                          Container(
-                                                                            margin:
-                                                                                const EdgeInsets.only(top: 10),
-                                                                            child:
-                                                                                MaterialButton(
-                                                                              padding: const EdgeInsets.symmetric(
-                                                                                vertical: 13,
-                                                                              ),
-                                                                              onPressed: () {
-                                                                                Get.to(LoginPage());
-                                                                              },
-                                                                              color: const Color(0xffE6F6F6),
-                                                                              textColor: const Color(0xFF8F8F8F),
-                                                                              child: const Text('Ok', style: TextStyle(fontWeight: FontWeight.w500, fontFamily: 'Montserrat', fontSize: 14)),
-                                                                            ),
-                                                                          ),
-                                                                          const SizedBox(
-                                                                            height:
-                                                                                30,
-                                                                          ),
-                                                                        ],
-                                                                      ),
-                                                                    ),
-                                                                  ),
-                                                                ));
-                                                              },
-                                                            );
-                                                          },
-                                                          color: const Color(
-                                                              0xffE6F6F6),
-                                                          textColor:
-                                                              const Color(
-                                                                  0xFF8F8F8F),
-                                                          child: const Text(
-                                                            'Yes',
-                                                            style: TextStyle(
-                                                              fontWeight:
-                                                                  FontWeight
-                                                                      .w500,
-                                                              fontFamily:
-                                                                  'Montserrat',
-                                                              fontSize: 14,
-                                                            ),
-                                                          ),
-                                                        ),
-                                                      )
-                                                    ],
-                                                  ),
-                                                ),
-                                                Expanded(
-                                                  child: Column(
-                                                    children: [
-                                                      Container(
-                                                        margin: const EdgeInsets
-                                                            .only(top: 10),
-                                                        child: MaterialButton(
-                                                          padding:
-                                                              const EdgeInsets
-                                                                  .symmetric(
-                                                            vertical: 13,
-                                                          ),
-                                                          onPressed: () {
-                                                            Navigator.pop(
-                                                                context);
-                                                          },
-                                                          color: const Color(
-                                                              0xffE6F6F6),
-                                                          textColor:
-                                                              const Color(
-                                                                  0xFF8F8F8F),
-                                                          child: const Text(
-                                                              'No',
-                                                              style: TextStyle(
-                                                                  color: Colors
-                                                                      .red,
-                                                                  fontWeight:
-                                                                      FontWeight
-                                                                          .w500,
-                                                                  fontFamily:
-                                                                      'Montserrat',
-                                                                  fontSize:
-                                                                      14)),
-                                                        ),
-                                                      ),
-                                                    ],
-                                                  ),
-                                                ),
-                                              ],
-                                            ),
-                                            const SizedBox(
-                                              height: 30,
-                                            ),
-                                          ],
-                                        ),
-                                      ),
-                                    ),
-                                  ));
-                            },
-                          );
+                          FocusManager.instance.primaryFocus?.unfocus();
+                          controller.logout();
                         },
                         text: 'Log Out',
                       ),
@@ -272,7 +97,7 @@ class SettingPage extends StatelessWidget {
           ),
         ),
       ),
-      bottomNavigationBar: const CustomBottomBar(),
+      bottomNavigationBar:  CustomBottomBar(),
     );
   }
 }

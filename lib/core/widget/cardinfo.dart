@@ -17,7 +17,7 @@ class CardInformation extends StatelessWidget {
           style: TextStyle(
             color: Theme.of(context).brightness == Brightness.dark
                 ? Colors.white
-                : Color(0xff3C2367),
+                : const Color(0xff3C2367),
             fontFamily: 'Montserrat',
             fontWeight: FontWeight.w400,
           ),
@@ -30,7 +30,7 @@ class CardInformation extends StatelessWidget {
           style: TextStyle(
             color: Theme.of(context).brightness == Brightness.dark
                 ? Colors.white
-                : Color(0xFF8C8A8C),
+                : const Color(0xFF8C8A8C),
             fontFamily: 'Montserrat',
             fontWeight: FontWeight.w400,
           ),
@@ -47,7 +47,7 @@ class CardInformation extends StatelessWidget {
                 : Colors.white,
             border: OutlineInputBorder(
               borderRadius: BorderRadius.circular(5.0),
-              borderSide: BorderSide(
+              borderSide: const BorderSide(
                 color: Colors.white,
                 width: 1,
               ),
@@ -67,7 +67,7 @@ class CardInformation extends StatelessWidget {
           style: TextStyle(
             color: Theme.of(context).brightness == Brightness.dark
                 ? Colors.white
-                : Color(0xFF8C8A8C),
+                : const Color(0xFF8C8A8C),
             fontFamily: 'Montserrat',
             fontWeight: FontWeight.w400,
           ),
@@ -84,7 +84,7 @@ class CardInformation extends StatelessWidget {
                 : Colors.white,
             border: OutlineInputBorder(
               borderRadius: BorderRadius.circular(5.0),
-              borderSide: BorderSide(
+              borderSide: const BorderSide(
                 color: Colors.white,
                 width: 1,
               ),
@@ -109,7 +109,7 @@ class CardInformation extends StatelessWidget {
                   style: TextStyle(
                     color: Theme.of(context).brightness == Brightness.dark
                         ? Colors.white
-                        : Color(0xFF8C8A8C),
+                        : const Color(0xFF8C8A8C),
                     fontFamily: 'Montserrat',
                     fontWeight: FontWeight.w400,
                   ),
@@ -128,7 +128,7 @@ class CardInformation extends StatelessWidget {
                           : Colors.white,
                       border: OutlineInputBorder(
                         borderRadius: BorderRadius.circular(5.0),
-                        borderSide: BorderSide(
+                        borderSide: const BorderSide(
                           color: Colors.white,
                           width: 1,
                         ),
@@ -154,7 +154,7 @@ class CardInformation extends StatelessWidget {
                   style: TextStyle(
                     color: Theme.of(context).brightness == Brightness.dark
                         ? Colors.white
-                        : Color(0xFF8C8A8C),
+                        : const Color(0xFF8C8A8C),
                     fontFamily: 'Montserrat',
                     fontWeight: FontWeight.w400,
                   ),
@@ -172,7 +172,7 @@ class CardInformation extends StatelessWidget {
                           : Colors.white,
                       border: OutlineInputBorder(
                         borderRadius: BorderRadius.circular(5.0),
-                        borderSide: BorderSide(
+                        borderSide: const BorderSide(
                           color: Colors.white,
                           width: 1,
                         ),
@@ -200,7 +200,7 @@ class CardInformation extends StatelessWidget {
               style: TextStyle(
                 color: Theme.of(context).brightness == Brightness.dark
                     ? Colors.white
-                    : Color(0xFF8C8A8C),
+                    : const Color(0xFF8C8A8C),
                 fontFamily: 'Montserrat',
                 fontWeight: FontWeight.w400,
               ),
@@ -221,7 +221,7 @@ class CardInformation extends StatelessWidget {
                   style: TextStyle(
                     color: Theme.of(context).brightness == Brightness.dark
                         ? Colors.white
-                        : Color(0xFF8C8A8C),
+                        : const Color(0xFF8C8A8C),
                     fontFamily: 'Montserrat',
                     fontWeight: FontWeight.w400,
                   ),
@@ -241,7 +241,7 @@ class CardInformation extends StatelessWidget {
                   style: TextStyle(
                     color: Theme.of(context).brightness == Brightness.dark
                         ? Colors.white
-                        : Color(0xFF8C8A8C),
+                        : const Color(0xFF8C8A8C),
                     fontFamily: 'Montserrat',
                     fontWeight: FontWeight.w400,
                   ),

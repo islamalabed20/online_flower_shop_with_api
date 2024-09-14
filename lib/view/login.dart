@@ -38,8 +38,8 @@ class LoginPage extends StatelessWidget {
             ),
           ),
           Positioned(
-            top: 30, // Adjust the top position as needed
-            right: 40, // Adjust the right position as needed
+            top: 30,
+            right: 40,
             child: Image.asset(
               'assets/images/Bunch.png',
               width: 210,
@@ -105,27 +105,6 @@ class LoginPage extends StatelessWidget {
                     },
                   ),
                   GetBuilder<LoginController>(
-                    id: 'phone',
-                    builder: (controller) {
-                      return CustomTextField(
-                        textController: controller.phoneController,
-                        labelText: "3".tr,
-                        errorText: controller.phoneError,
-                        keyboardType: TextInputType.phone,
-                        onFocusChange: (isFocused) {
-                          if (!isFocused) {
-                            controller.validatePhone();
-                          }
-                        },
-                        onChanged: (value) {
-                          if (controller.phoneError != null) {
-                            controller.clearPhoneError();
-                          }
-                        },
-                      );
-                    },
-                  ),
-                  GetBuilder<LoginController>(
                     id: 'password',
                     builder: (controller) => CustomTextField(
                       textController: controller.passwordController,
@@ -153,7 +132,7 @@ class LoginPage extends StatelessWidget {
                   Column(
                     children: [
                       Text(
-                        "5 ".tr,
+                        "5".tr,
                         style: TextStyle(
                           color: Theme.of(context).brightness == Brightness.dark
                               ? Colors.white
@@ -187,12 +166,15 @@ class LoginPage extends StatelessWidget {
                               : const Color(0XFF8C8A8C),
                         ),
                       ),
+                      const SizedBox(
+                        width: 4,
+                      ),
                       InkWell(
                         onTap: () {
                           Get.to(() => SignupPage());
                         },
                         child: Text(
-                          "9".tr,
+                          "8".tr,
                           style: const TextStyle(
                             fontSize: 12,
                             fontWeight: FontWeight.w700,
@@ -218,14 +200,24 @@ class LoginPage extends StatelessWidget {
   Widget _loginButton() {
     return MaterialButton(
       onPressed: () {
-        // FocusManager.instance.primaryFocus?.unfocus();
-        // controller.checkCredentials().then(
-        //   (result) {
-        //     if (result == true) {
-        Get.offNamed('/home');
-        //     }
-        //   },
-        // );
+        FocusManager.instance.primaryFocus?.unfocus();
+        controller.checkCredentials().then(
+          (result) {
+            if (result == true) {
+              Get.snackbar("Success",
+                  'user logged in successfully , we send 2FA code to your email please check it',
+                  snackPosition: SnackPosition.TOP,
+                  duration: const Duration(seconds: 3),
+                  backgroundColor: Colors.green,
+                  colorText: Colors.white);
+              Get.toNamed('/authentication', arguments: {
+                'email': controller.emailController.value.text,
+                'verificationType': 'login'
+              });
+            }
+            
+          },
+        );
       },
       height: 60,
       minWidth: 220,
@@ -240,8 +232,8 @@ class LoginPage extends StatelessWidget {
       shape: RoundedRectangleBorder(
         borderRadius: BorderRadius.circular(10),
       ),
-      child: const Text("Log in",
-          style: TextStyle(fontWeight: FontWeight.bold, fontSize: 16)),
+      child: Text("9".tr,
+          style: const TextStyle(fontWeight: FontWeight.bold, fontSize: 16)),
     );
   }
 }

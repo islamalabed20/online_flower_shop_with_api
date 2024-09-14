@@ -24,7 +24,7 @@ class LoadingDialog extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Center(
+    return const Center(
       child: CircularProgressIndicator(
         color: Color(0xff8C8A8C),
       ),

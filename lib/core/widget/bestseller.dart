@@ -40,7 +40,7 @@ class BestSeller extends StatelessWidget {
                 fontSize: 20,
                 color: Theme.of(context).brightness == Brightness.dark
                     ? Colors.white
-                    : Color(0xff3C2367),
+                    : const Color(0xff3C2367),
                 fontWeight: FontWeight.w700,
                 fontFamily: 'Montserrat'),
           ),
@@ -72,7 +72,7 @@ class BestSeller extends StatelessWidget {
                   Column(
                     mainAxisAlignment: MainAxisAlignment.start,
                     children: [
-                      SizedBox(
+                      const SizedBox(
                         height: 10,
                       ),
                       Image.asset(item.imagePath),
@@ -80,13 +80,13 @@ class BestSeller extends StatelessWidget {
                       SizedBox(
                         width: 150,
                         child: Padding(
-                          padding: EdgeInsets.symmetric(horizontal: 20.0),
+                          padding: const EdgeInsets.symmetric(horizontal: 20.0),
                           child: Column(
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
                               Text(
                                 item.name,
-                                style: TextStyle(
+                                style: const TextStyle(
                                     fontSize: 12,
                                     color: Color(0xFF3C2367),
                                     fontFamily: 'Montserrat',
@@ -94,7 +94,7 @@ class BestSeller extends StatelessWidget {
                               ),
                               Text(
                                   'Price: \$${item.price.toStringAsFixed(2)}', // Example price
-                                  style: TextStyle(
+                                  style: const TextStyle(
                                       fontSize: 10,
                                       color: Color(0xFF3C2367),
                                       fontFamily: 'Roboto',
