@@ -42,7 +42,7 @@ class MainApp extends StatelessWidget {
       theme: AppTheme.lightTheme,
       darkTheme: AppTheme.darkTheme,
       themeMode: ThemeMode.system,
-      initialRoute: '/signup',
+      initialRoute: '/',
       getPages: routes,
     );
   }
