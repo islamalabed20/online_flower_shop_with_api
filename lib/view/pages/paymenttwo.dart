@@ -28,7 +28,7 @@ class PaymentTwoPage extends StatelessWidget {
                 children: [
                   InkWell(
                     onTap: () {
-                      Get.to(LoginPage());
+                      Get.back();
                     },
                     child: Image.asset(
                       'assets/images/left-arrow2.png',
@@ -118,7 +118,7 @@ class PaymentTwoPage extends StatelessWidget {
                       borderRadius: BorderRadius.circular(10)),
                   padding: const EdgeInsets.symmetric(vertical: 13),
                   onPressed: () {
-                    Get.to(const HomePage());
+                    Get.to( HomePage());
                     showDialog(
                       context: context,
                       builder: (BuildContext context) {

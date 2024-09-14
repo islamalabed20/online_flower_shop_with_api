@@ -3,7 +3,6 @@ import 'package:get/get.dart';
 import 'package:online_flower_shop_auth/controller/paymentcontroller.dart';
 import 'package:online_flower_shop_auth/core/widget/address.dart';
 import 'package:online_flower_shop_auth/core/widget/customtextfield.dart';
-import 'package:online_flower_shop_auth/view/login.dart';
 
 class PaymentOnePage extends StatelessWidget {
   final PaymentController controller = Get.put(PaymentController());
@@ -27,7 +26,7 @@ class PaymentOnePage extends StatelessWidget {
                 children: [
                   InkWell(
                     onTap: () {
-                      Get.to(LoginPage());
+                      Get.back();
                     },
                     child: Image.asset(
                       'assets/images/left-arrow2.png',
@@ -72,7 +71,7 @@ class PaymentOnePage extends StatelessWidget {
               ),
               const AddressField(
                 labeltext1: 'Address',
-                labeltext2: 'Special Instructions About Adress',
+                labeltext2: 'Special Instructions About Address',
               ),
               const SizedBox(
                 height: 15,

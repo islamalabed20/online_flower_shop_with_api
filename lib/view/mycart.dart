@@ -3,8 +3,6 @@ import 'package:get/get.dart';
 import 'package:online_flower_shop_auth/core/widget/custumbottombar.dart';
 import 'package:online_flower_shop_auth/core/widget/mycartbutton.dart';
 import 'package:online_flower_shop_auth/core/widget/ordercart.dart';
-import 'package:online_flower_shop_auth/view/login.dart';
-import 'package:online_flower_shop_auth/view/payment.dart';
 
 class MyCart extends StatelessWidget {
   const MyCart({super.key});
@@ -27,7 +25,7 @@ class MyCart extends StatelessWidget {
                           children: [
                             InkWell(
                               onTap: () {
-                                Get.to(LoginPage());
+                                Get.back();
                               },
                               child: Image.asset(
                                 'assets/images/left-arrow2.png',
@@ -195,7 +193,7 @@ class MyCart extends StatelessWidget {
                     borderRadius: BorderRadius.circular(5)),
                 padding: const EdgeInsets.all(20),
                 onPressed: () {
-                  Get.to(PaymentPage());
+                  Get.toNamed('/payment');
                 },
                 color: const Color(0xFFF6E1D8),
                 textColor: const Color(0xff3C2367),
@@ -212,7 +210,7 @@ class MyCart extends StatelessWidget {
           ],
         ),
       ),
-      bottomNavigationBar: const CustomBottomBar(),
+      bottomNavigationBar:  CustomBottomBar(),
     );
   }
 }
