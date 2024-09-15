@@ -11,21 +11,7 @@ class SplashScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     Future.delayed(const Duration(seconds: 2), () {
       String? token = storage.read('access_token');
-      final int? expiresIn = GetStorage().read('expires_in');
-      print(expiresIn);
-      // If the expiry time is null, treat it as expired
-      if (expiresIn == null) {
-        Get.offNamed('/login');
-      }
-
-      // Calculate the token expiry date
-      final DateTime expiryDate =
-          DateTime.now().add(Duration(seconds: expiresIn!));
-      if (DateTime.now().isAfter(expiryDate)) {
-        Get.offNamed('/login');
-      }
-
-      if (token != null && token.isNotEmpty) {
+ if (token != null && token.isNotEmpty) {
         Get.offNamed('/home');
       } else {
         Get.offNamed('/login');

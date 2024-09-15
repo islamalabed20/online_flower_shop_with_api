@@ -280,7 +280,6 @@ class AuthenticationController extends GetxController {
 
   bool isTokenExpired() {
     int? expiresIn = storage.read('expires_in');
-    print('expiresIn $expiresIn');
     if (expiresIn == null) {
       return true;
     }
@@ -295,14 +294,12 @@ class AuthenticationController extends GetxController {
     LoadingDialog.showDialog();
 
     String? token = storage.read('access_token');
-    print(token);
     if (token == null) {
       Get.back();
       ErrorDialog.showDialog(content: "No token found!");
       return;
     }
     if (isTokenExpired()) {
-      print(isTokenExpired());
       Get.back();
       storage.remove('access_token');
       Get.offAllNamed('/login');

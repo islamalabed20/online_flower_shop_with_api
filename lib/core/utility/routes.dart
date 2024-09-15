@@ -46,7 +46,7 @@ final routes = [
   ),
   GetPage(
     name: '/home',
-    page: () => HomePage(),
+    page: () => const HomePage(),
     binding: HomeBindings(),
     transition: Transition.rightToLeft,
     transitionDuration: const Duration(milliseconds: 500),

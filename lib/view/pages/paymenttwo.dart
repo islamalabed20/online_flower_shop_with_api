@@ -5,7 +5,6 @@ import 'package:online_flower_shop_auth/core/widget/cardinfo.dart';
 import 'package:online_flower_shop_auth/core/widget/paymentmethod.dart';
 import 'package:online_flower_shop_auth/core/widget/popup.dart';
 import 'package:online_flower_shop_auth/view/home.dart';
-import 'package:online_flower_shop_auth/view/login.dart';
 
 class PaymentTwoPage extends StatelessWidget {
   final PaymentController controller = Get.put(PaymentController());
@@ -118,7 +117,7 @@ class PaymentTwoPage extends StatelessWidget {
                       borderRadius: BorderRadius.circular(10)),
                   padding: const EdgeInsets.symmetric(vertical: 13),
                   onPressed: () {
-                    Get.to( HomePage());
+                    Get.to( const HomePage());
                     showDialog(
                       context: context,
                       builder: (BuildContext context) {
